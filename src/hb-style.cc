@@ -27,7 +27,6 @@
 #ifndef HB_NO_STYLE
 #ifdef HB_EXPERIMENTAL_API
 
-#include "hb-aat-fdsc-table.hh"
 #include "hb-ot-var-avar-table.hh"
 #include "hb-ot-var-fvar-table.hh"
 #include "hb-ot-stat-table.hh"
@@ -66,6 +65,7 @@ typedef enum {
   HB_STYLE_TAG_WIDTH		= HB_TAG ('w','d','t','h'),
   HB_STYLE_TAG_WEIGHT		= HB_TAG ('w','g','h','t'),
 
+  /*< private >*/
   _HB_STYLE_TAG_MAX_VALUE	= HB_TAG_MAX_SIGNED /*< skip >*/
 } hb_style_tag_t;
 
@@ -105,19 +105,6 @@ hb_style_get_value (hb_font_t *font, hb_tag_t tag)
   float value;
   if (face->table.STAT->get_value (style_tag, &value))
     return value;
-
-  /* Check Apple's fdsc as OS2 table is optional in AAT */
-  const AAT::FontDescriptor &descriptor = face->table.fdsc->get_descriptor (style_tag);
-  if (descriptor.has_data ())
-  {
-    float value = descriptor.get_value ();
-    /* https://developer.apple.com/fonts/TrueType-Reference-Manual/RM06/Chap6fdsc.html */
-    /* Percent weight relative to regular weight. */
-    if (style_tag == HB_STYLE_TAG_WEIGHT) value *= 400.f;
-    /* Percent width relative to regular width. */
-    if (style_tag == HB_STYLE_TAG_WIDTH) value *= 100.f;
-    return value;
-  }
 
   switch ((unsigned) style_tag)
   {

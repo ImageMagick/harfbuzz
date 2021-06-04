@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>hb-ot-color: HarfBuzz Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets Vsnapshot">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="HarfBuzz Manual">
-<link rel="up" href="ch13.html" title="OpenType API">
-<link rel="prev" href="ch13.html" title="OpenType API">
+<link rel="up" href="opentype-api.html" title="OpenType API">
+<link rel="prev" href="opentype-api.html" title="OpenType API">
 <link rel="next" href="harfbuzz-hb-ot-font.html" title="hb-ot-font">
-<meta name="generator" content="GTK-Doc V1.32.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.32 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,8 +18,8 @@
                   <a href="#harfbuzz-hb-ot-color.description" class="shortcut">Description</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
-<td><a accesskey="u" href="ch13.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
-<td><a accesskey="p" href="ch13.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="opentype-api.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="opentype-api.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
 <td><a accesskey="n" href="harfbuzz-hb-ot-font.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
 </tr></table>
 <div class="refentry">
@@ -186,6 +186,10 @@
 <td class="function_name"><a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t">hb_color_t</a></td>
 </tr>
 <tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="harfbuzz-hb-ot-color.html#hb-ot-color-layer-t" title="hb_ot_color_layer_t">hb_ot_color_layer_t</a></td>
+</tr>
+<tr>
 <td class="datatype_keyword">enum</td>
 <td class="function_name"><a class="link" href="harfbuzz-hb-ot-color.html#hb-ot-color-palette-flags-t" title="enum hb_ot_color_palette_flags_t">hb_ot_color_palette_flags_t</a></td>
 </tr>
@@ -208,15 +212,66 @@
 <a name="HB-COLOR:CAPS"></a><h3>HB_COLOR()</h3>
 <pre class="programlisting">#define HB_COLOR(b,g,r,a) ((hb_color_t) HB_TAG ((b),(g),(r),(a)))
 </pre>
+<p>Constructs an <a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> from four integers.</p>
+<div class="refsect3">
+<a name="HB-COLOR.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>b</p></td>
+<td class="parameter_description"><p>blue channel value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>g</p></td>
+<td class="parameter_description"><p>green channel value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>r</p></td>
+<td class="parameter_description"><p>red channel value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>a</p></td>
+<td class="parameter_description"><p>alpha channel value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="hb-color-get-alpha"></a><h3>hb_color_get_alpha ()</h3>
 <pre class="programlisting"><span class="returnvalue">uint8_t</span>
 hb_color_get_alpha (<em class="parameter"><code><a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> color</code></em>);</pre>
+<p>Fetches the alpha channel of the given <em class="parameter"><code>color</code></em>
+.</p>
+<div class="refsect3">
+<a name="hb-color-get-alpha.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p>an <a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> we are interested in its channels.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 <div class="refsect3">
 <a name="hb-color-get-alpha.returns"></a><h4>Returns</h4>
-<p> Alpha channel value of the given color</p>
+<p> Alpha channel value</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -225,9 +280,26 @@ hb_color_get_alpha (<em class="parameter"><code><a class="link" href="harfbuzz-h
 <a name="hb-color-get-blue"></a><h3>hb_color_get_blue ()</h3>
 <pre class="programlisting"><span class="returnvalue">uint8_t</span>
 hb_color_get_blue (<em class="parameter"><code><a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> color</code></em>);</pre>
+<p>Fetches the blue channel of the given <em class="parameter"><code>color</code></em>
+.</p>
+<div class="refsect3">
+<a name="hb-color-get-blue.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p>an <a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> we are interested in its channels.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 <div class="refsect3">
 <a name="hb-color-get-blue.returns"></a><h4>Returns</h4>
-<p> Blue channel value of the given color</p>
+<p> Blue channel value</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -236,9 +308,26 @@ hb_color_get_blue (<em class="parameter"><code><a class="link" href="harfbuzz-hb
 <a name="hb-color-get-green"></a><h3>hb_color_get_green ()</h3>
 <pre class="programlisting"><span class="returnvalue">uint8_t</span>
 hb_color_get_green (<em class="parameter"><code><a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> color</code></em>);</pre>
+<p>Fetches the green channel of the given <em class="parameter"><code>color</code></em>
+.</p>
+<div class="refsect3">
+<a name="hb-color-get-green.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p>an <a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> we are interested in its channels.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 <div class="refsect3">
 <a name="hb-color-get-green.returns"></a><h4>Returns</h4>
-<p> Green channel value of the given color</p>
+<p> Green channel value</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -247,9 +336,26 @@ hb_color_get_green (<em class="parameter"><code><a class="link" href="harfbuzz-h
 <a name="hb-color-get-red"></a><h3>hb_color_get_red ()</h3>
 <pre class="programlisting"><span class="returnvalue">uint8_t</span>
 hb_color_get_red (<em class="parameter"><code><a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> color</code></em>);</pre>
+<p>Fetches the red channel of the given <em class="parameter"><code>color</code></em>
+.</p>
+<div class="refsect3">
+<a name="hb-color-get-red.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>color</p></td>
+<td class="parameter_description"><p>an <a class="link" href="harfbuzz-hb-ot-color.html#hb-color-t" title="hb_color_t"><span class="type">hb_color_t</span></a> we are interested in its channels.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
 <div class="refsect3">
 <a name="hb-color-get-red.returns"></a><h4>Returns</h4>
-<p> Red channel value of the given color</p>
+<p> Red channel value</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -261,7 +367,7 @@ hb_ot_color_glyph_get_layers (<em class="parameter"><code><a class="link" href="
                               <em class="parameter"><code><a class="link" href="harfbuzz-hb-common.html#hb-codepoint-t" title="hb_codepoint_t"><span class="type">hb_codepoint_t</span></a> glyph</code></em>,
                               <em class="parameter"><code>unsigned <span class="type">int</span> start_offset</code></em>,
                               <em class="parameter"><code>unsigned <span class="type">int</span> *layer_count</code></em>,
-                              <em class="parameter"><code><span class="type">hb_ot_color_layer_t</span> *layers</code></em>);</pre>
+                              <em class="parameter"><code><a class="link" href="harfbuzz-hb-ot-color.html#hb-ot-color-layer-t" title="hb_ot_color_layer_t"><span class="type">hb_ot_color_layer_t</span></a> *layers</code></em>);</pre>
 <p>Fetches a list of all color layers for the specified glyph index in the specified
 face. The list returned will begin at the offset provided.</p>
 <div class="refsect3">
@@ -406,7 +512,7 @@ hb_ot_color_has_layers (<em class="parameter"><code><a class="link" href="harfbu
 </div>
 <div class="refsect3">
 <a name="hb-ot-color-has-layers.returns"></a><h4>Returns</h4>
-<p> true if data found, false otherwise</p>
+<p> <code class="literal">true</code> if data found, <code class="literal">false</code> otherwise</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -433,7 +539,7 @@ hb_ot_color_has_palettes (<em class="parameter"><code><a class="link" href="harf
 </div>
 <div class="refsect3">
 <a name="hb-ot-color-has-palettes.returns"></a><h4>Returns</h4>
-<p> true if data found, false otherwise</p>
+<p> <code class="literal">true</code> if data found, <code class="literal">false</code> otherwise</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -460,7 +566,7 @@ hb_ot_color_has_png (<em class="parameter"><code><a class="link" href="harfbuzz-
 </div>
 <div class="refsect3">
 <a name="hb-ot-color-has-png.returns"></a><h4>Returns</h4>
-<p> true if data found, false otherwise</p>
+<p> <code class="literal">true</code> if data found, <code class="literal">false</code> otherwise</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -487,7 +593,7 @@ hb_ot_color_has_svg (<em class="parameter"><code><a class="link" href="harfbuzz-
 </div>
 <div class="refsect3">
 <a name="hb-ot-color-has-svg.returns"></a><h4>Returns</h4>
-<p> true if data found, false otherwise.</p>
+<p> <code class="literal">true</code> if data found, <code class="literal">false</code> otherwise.</p>
 </div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
@@ -698,12 +804,47 @@ If the requested palette has no name the result is <span class="type">HB_OT_NAME
 <a name="hb-color-t"></a><h3>hb_color_t</h3>
 <pre class="programlisting">typedef uint32_t hb_color_t;
 </pre>
-<p>Data type for holding color values.</p>
+<p>Data type for holding color values. Colors are eight bits per
+channel RGB plus alpha transparency.</p>
+<p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="hb-ot-color-layer-t"></a><h3>hb_ot_color_layer_t</h3>
+<pre class="programlisting">typedef struct {
+  hb_codepoint_t glyph;
+  unsigned int   color_index;
+} hb_ot_color_layer_t;
+</pre>
+<p>Pairs of glyph and color index.</p>
+<div class="refsect3">
+<a name="hb-ot-color-layer-t.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="harfbuzz-hb-common.html#hb-codepoint-t" title="hb_codepoint_t"><span class="type">hb_codepoint_t</span></a> <em class="structfield"><code><a name="hb-ot-color-layer-t.glyph"></a>glyph</code></em>;</p></td>
+<td class="struct_member_description"><p>the glyph ID of the layer</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p>unsigned <span class="type">int</span> <em class="structfield"><code><a name="hb-ot-color-layer-t.color-index"></a>color_index</code></em>;</p></td>
+<td class="struct_member_description"><p>the palette color index of the layer</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
 <p class="since">Since: <a class="link" href="api-index-2-1-0.html#api-index-2.1.0">2.1.0</a></p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="hb-ot-color-palette-flags-t"></a><h3>enum hb_ot_color_palette_flags_t</h3>
+<p>Flags that describe the properties of color palette.</p>
 <div class="refsect3">
 <a name="hb-ot-color-palette-flags-t.members"></a><h4>Members</h4>
 <div class="informaltable"><table class="informaltable" width="100%" border="0">
@@ -745,6 +886,6 @@ palette is appropriate to use when displaying the font on a dark background such
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.32.1</div>
+<hr>Generated by GTK-Doc V1.32</div>
 </body>
 </html>
