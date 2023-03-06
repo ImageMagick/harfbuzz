@@ -403,16 +403,17 @@ am__libharfbuzz_la_SOURCES_DIST = hb-aat-layout-ankr-table.hh \
 	hb-ot-shape-normalize.cc hb-ot-shape-normalize.hh \
 	hb-ot-shape.cc hb-ot-shape.hh hb-ot-stat-table.hh \
 	hb-ot-tag-table.hh hb-ot-tag.cc hb-ot-var-avar-table.hh \
-	hb-ot-var-common.hh hb-ot-var-fvar-table.hh \
-	hb-ot-var-gvar-table.hh hb-ot-var-hvar-table.hh \
-	hb-ot-var-mvar-table.hh hb-ot-var.cc hb-ot-vorg-table.hh \
-	hb-pool.hh hb-sanitize.hh hb-serialize.hh hb-set-digest.hh \
-	hb-set.cc hb-set.hh hb-shape-plan.cc hb-shape-plan.hh \
-	hb-shape.cc hb-shaper-impl.hh hb-shaper-list.hh hb-shaper.cc \
-	hb-shaper.hh hb-static.cc hb-string-array.hh hb-style.cc \
-	hb-ucd-table.hh hb-ucd.cc hb-unicode-emoji-table.hh \
-	hb-unicode.cc hb-unicode.hh hb-utf.hh hb-vector.hh \
-	hb-priority-queue.hh hb.hh hb-buffer-deserialize-json.hh \
+	hb-ot-var-common.hh hb-ot-var-cvar-table.hh \
+	hb-ot-var-fvar-table.hh hb-ot-var-gvar-table.hh \
+	hb-ot-var-hvar-table.hh hb-ot-var-mvar-table.hh hb-ot-var.cc \
+	hb-ot-vorg-table.hh hb-pool.hh hb-sanitize.hh hb-serialize.hh \
+	hb-set-digest.hh hb-set.cc hb-set.hh hb-shape-plan.cc \
+	hb-shape-plan.hh hb-shape.cc hb-shaper-impl.hh \
+	hb-shaper-list.hh hb-shaper.cc hb-shaper.hh hb-static.cc \
+	hb-string-array.hh hb-style.cc hb-ucd-table.hh hb-ucd.cc \
+	hb-unicode-emoji-table.hh hb-unicode.cc hb-unicode.hh \
+	hb-utf.hh hb-vector.hh hb-priority-queue.hh hb.hh \
+	hb-buffer-deserialize-json.hh \
 	hb-buffer-deserialize-text-glyphs.hh \
 	hb-buffer-deserialize-text-unicode.hh hb-number-parser.hh \
 	hb-ot-shaper-indic-machine.hh hb-ot-shaper-khmer-machine.hh \
@@ -1510,6 +1511,7 @@ HB_BASE_sources = \
 	hb-ot-tag.cc \
 	hb-ot-var-avar-table.hh \
 	hb-ot-var-common.hh \
+	hb-ot-var-cvar-table.hh \
 	hb-ot-var-fvar-table.hh \
 	hb-ot-var-gvar-table.hh \
 	hb-ot-var-hvar-table.hh \

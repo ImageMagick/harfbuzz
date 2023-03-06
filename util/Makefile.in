@@ -94,6 +94,12 @@ bin_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_2)
 @HAVE_CAIRO_TRUE@@HAVE_GLIB_TRUE@am__append_1 = hb-view
 @HAVE_GLIB_TRUE@am__append_2 = hb-shape hb-info hb-subset \
 @HAVE_GLIB_TRUE@	hb-ot-shape-closure
+@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@am__append_3 = \
+@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(top_builddir)/src/libharfbuzz-gobject.la \
+@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(GOBJECT_LIBS) \
+@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(NULL)
+
+@HAVE_CHAFA_TRUE@@HAVE_GLIB_TRUE@am__append_4 = $(CHAFA_LIBS)
 subdir = util
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_check_link_flag.m4 \
@@ -126,13 +132,14 @@ am__DEPENDENCIES_1 =
 am__DEPENDENCIES_2 = $(top_builddir)/src/libharfbuzz.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@hb_info_DEPENDENCIES =  \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@	$(am__DEPENDENCIES_2) \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@	$(am__DEPENDENCIES_1)
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@hb_info_DEPENDENCIES = $(top_builddir)/src/libharfbuzz-gobject.la \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(am__DEPENDENCIES_2) \
+@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@am__DEPENDENCIES_3 = $(top_builddir)/src/libharfbuzz-gobject.la \
 @HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(am__DEPENDENCIES_1) \
 @HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(am__DEPENDENCIES_1)
+@HAVE_CHAFA_TRUE@@HAVE_GLIB_TRUE@am__DEPENDENCIES_4 =  \
+@HAVE_CHAFA_TRUE@@HAVE_GLIB_TRUE@	$(am__DEPENDENCIES_1)
+@HAVE_GLIB_TRUE@hb_info_DEPENDENCIES = $(am__DEPENDENCIES_2) \
+@HAVE_GLIB_TRUE@	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_3) \
+@HAVE_GLIB_TRUE@	$(am__DEPENDENCIES_4)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -551,16 +558,8 @@ LDADD = \
 
 @HAVE_GLIB_TRUE@hb_shape_SOURCES = $(HB_SHAPE_sources)
 @HAVE_GLIB_TRUE@hb_info_SOURCES = $(HB_INFO_sources)
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@hb_info_LDADD = \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@	$(LDADD) \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_FALSE@	$(NULL)
-
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@hb_info_LDADD = \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(top_builddir)/src/libharfbuzz-gobject.la \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(LDADD) \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(GOBJECT_LIBS) \
-@HAVE_GLIB_TRUE@@HAVE_GOBJECT_TRUE@	$(NULL)
-
+@HAVE_GLIB_TRUE@hb_info_LDADD = $(LDADD) $(NULL) $(am__append_3) \
+@HAVE_GLIB_TRUE@	$(am__append_4)
 @HAVE_GLIB_TRUE@hb_subset_SOURCES = $(HB_SUBSET_CLI_sources)
 @HAVE_GLIB_TRUE@hb_subset_LDADD = \
 @HAVE_GLIB_TRUE@	$(top_builddir)/src/libharfbuzz-subset.la \

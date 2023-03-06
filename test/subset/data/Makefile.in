@@ -116,10 +116,13 @@ TESTS = tests/32bit_var_store.tests tests/basics.tests \
 	tests/math_coverage_offset.tests tests/post.tests \
 	tests/full_instance.tests \
 	tests/instance_feature_variations.tests \
-	tests/instantiate_glyf.tests tests/pin_all_at_default.tests \
+	tests/instantiate_glyf.tests tests/instantiate_cff2.tests \
+	tests/pin_all_at_default.tests \
 	tests/instance_no_double_free.tests \
 	tests/mvar_full_instance.tests \
-	tests/instance_comp_glyph_empty_child.tests $(am__EXEEXT_1)
+	tests/instance_comp_glyph_empty_child.tests \
+	tests/post_apply_mvar_delta.tests tests/apply_cvar_delta.tests \
+	$(am__EXEEXT_1)
 XFAIL_TESTS = $(am__EXEEXT_1)
 subdir = test/subset/data
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -636,10 +639,12 @@ EXTRA_DIST = $(TESTS) $(DISABLED_TESTS) expected/32bit_var_store \
 	expected/glyph_names expected/math \
 	expected/math_coverage_offset expected/post \
 	expected/full_instance expected/instance_feature_variations \
-	expected/instantiate_glyf expected/pin_all_at_default \
-	expected/instance_no_double_free expected/mvar_full_instance \
-	expected/instance_comp_glyph_empty_child fonts profiles \
-	$(NULL)
+	expected/instantiate_glyf expected/instantiate_cff2 \
+	expected/pin_all_at_default expected/instance_no_double_free \
+	expected/mvar_full_instance \
+	expected/instance_comp_glyph_empty_child \
+	expected/post_apply_mvar_delta expected/apply_cvar_delta fonts \
+	profiles $(NULL)
 CLEANFILES = 
 SUBDIRS = repack_tests
 TEST_EXTENSIONS = .tests
