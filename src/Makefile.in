@@ -156,6 +156,7 @@ noinst_PROGRAMS = main$(EXEEXT) test$(EXEEXT) \
 	test-buffer-serialize$(EXEEXT) test-ot-meta$(EXEEXT) \
 	test-ot-name$(EXEEXT) test-ot-glyphname$(EXEEXT) \
 	test-gpos-size-params$(EXEEXT) \
+	test-gsub-get-alternates$(EXEEXT) \
 	test-gsub-would-substitute$(EXEEXT) test-use-table$(EXEEXT) \
 	$(am__EXEEXT_1)
 bin_PROGRAMS =
@@ -537,6 +538,12 @@ am_test_gpos_size_params_OBJECTS =  \
 test_gpos_size_params_OBJECTS = $(am_test_gpos_size_params_OBJECTS)
 test_gpos_size_params_DEPENDENCIES = libharfbuzz.la \
 	$(am__DEPENDENCIES_11)
+am_test_gsub_get_alternates_OBJECTS =  \
+	test_gsub_get_alternates-test-gsub-get-alternates.$(OBJEXT)
+test_gsub_get_alternates_OBJECTS =  \
+	$(am_test_gsub_get_alternates_OBJECTS)
+test_gsub_get_alternates_DEPENDENCIES = libharfbuzz.la \
+	$(am__DEPENDENCIES_11)
 am_test_gsub_would_substitute_OBJECTS = test_gsub_would_substitute-test-gsub-would-substitute.$(OBJEXT)
 test_gsub_would_substitute_OBJECTS =  \
 	$(am_test_gsub_would_substitute_OBJECTS)
@@ -716,6 +723,7 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/test_classdef_graph-hb-static.Po \
 	./$(DEPDIR)/test_classdef_graph-test-classdef-graph.Po \
 	./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po \
+	./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po \
 	./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po \
 	./$(DEPDIR)/test_iter-hb-static.Po \
 	./$(DEPDIR)/test_iter-test-iter.Po \
@@ -790,6 +798,7 @@ SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_bimap_SOURCES) $(test_buffer_serialize_SOURCES) \
 	$(test_classdef_graph_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
+	$(test_gsub_get_alternates_SOURCES) \
 	$(test_gsub_would_substitute_SOURCES) $(test_iter_SOURCES) \
 	$(test_machinery_SOURCES) $(test_map_SOURCES) \
 	$(test_multimap_SOURCES) $(test_number_SOURCES) \
@@ -808,6 +817,7 @@ DIST_SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_bimap_SOURCES) $(test_buffer_serialize_SOURCES) \
 	$(test_classdef_graph_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
+	$(test_gsub_get_alternates_SOURCES) \
 	$(test_gsub_would_substitute_SOURCES) $(test_iter_SOURCES) \
 	$(test_machinery_SOURCES) $(test_map_SOURCES) \
 	$(test_multimap_SOURCES) $(test_number_SOURCES) \
@@ -1819,6 +1829,9 @@ test_use_table_LDADD = libharfbuzz.la $(HBLIBS)
 test_gpos_size_params_SOURCES = test-gpos-size-params.cc
 test_gpos_size_params_CPPFLAGS = $(HBCFLAGS)
 test_gpos_size_params_LDADD = libharfbuzz.la $(HBLIBS)
+test_gsub_get_alternates_SOURCES = test-gsub-get-alternates.cc
+test_gsub_get_alternates_CPPFLAGS = $(HBCFLAGS)
+test_gsub_get_alternates_LDADD = libharfbuzz.la $(HBLIBS)
 test_gsub_would_substitute_SOURCES = test-gsub-would-substitute.cc
 test_gsub_would_substitute_CPPFLAGS = $(HBCFLAGS) $(FREETYPE_CFLAGS)
 test_gsub_would_substitute_LDADD = libharfbuzz.la $(HBLIBS) $(FREETYPE_LIBS)
@@ -2149,6 +2162,10 @@ test-gpos-size-params$(EXEEXT): $(test_gpos_size_params_OBJECTS) $(test_gpos_siz
 	@rm -f test-gpos-size-params$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_gpos_size_params_OBJECTS) $(test_gpos_size_params_LDADD) $(LIBS)
 
+test-gsub-get-alternates$(EXEEXT): $(test_gsub_get_alternates_OBJECTS) $(test_gsub_get_alternates_DEPENDENCIES) $(EXTRA_test_gsub_get_alternates_DEPENDENCIES) 
+	@rm -f test-gsub-get-alternates$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_gsub_get_alternates_OBJECTS) $(test_gsub_get_alternates_LDADD) $(LIBS)
+
 test-gsub-would-substitute$(EXEEXT): $(test_gsub_would_substitute_OBJECTS) $(test_gsub_would_substitute_DEPENDENCIES) $(EXTRA_test_gsub_would_substitute_DEPENDENCIES) 
 	@rm -f test-gsub-would-substitute$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_gsub_would_substitute_OBJECTS) $(test_gsub_would_substitute_LDADD) $(LIBS)
@@ -2315,6 +2332,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_classdef_graph-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_classdef_graph-test-classdef-graph.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-test-iter.Po@am__quote@ # am--include-marker
@@ -3098,6 +3116,20 @@ test_gpos_size_params-test-gpos-size-params.obj: test-gpos-size-params.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-gpos-size-params.cc' object='test_gpos_size_params-test-gpos-size-params.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gpos_size_params_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_gpos_size_params-test-gpos-size-params.obj `if test -f 'test-gpos-size-params.cc'; then $(CYGPATH_W) 'test-gpos-size-params.cc'; else $(CYGPATH_W) '$(srcdir)/test-gpos-size-params.cc'; fi`
+
+test_gsub_get_alternates-test-gsub-get-alternates.o: test-gsub-get-alternates.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_get_alternates_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_gsub_get_alternates-test-gsub-get-alternates.o -MD -MP -MF $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Tpo -c -o test_gsub_get_alternates-test-gsub-get-alternates.o `test -f 'test-gsub-get-alternates.cc' || echo '$(srcdir)/'`test-gsub-get-alternates.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Tpo $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-gsub-get-alternates.cc' object='test_gsub_get_alternates-test-gsub-get-alternates.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_get_alternates_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_gsub_get_alternates-test-gsub-get-alternates.o `test -f 'test-gsub-get-alternates.cc' || echo '$(srcdir)/'`test-gsub-get-alternates.cc
+
+test_gsub_get_alternates-test-gsub-get-alternates.obj: test-gsub-get-alternates.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_get_alternates_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_gsub_get_alternates-test-gsub-get-alternates.obj -MD -MP -MF $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Tpo -c -o test_gsub_get_alternates-test-gsub-get-alternates.obj `if test -f 'test-gsub-get-alternates.cc'; then $(CYGPATH_W) 'test-gsub-get-alternates.cc'; else $(CYGPATH_W) '$(srcdir)/test-gsub-get-alternates.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Tpo $(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-gsub-get-alternates.cc' object='test_gsub_get_alternates-test-gsub-get-alternates.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_get_alternates_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_gsub_get_alternates-test-gsub-get-alternates.obj `if test -f 'test-gsub-get-alternates.cc'; then $(CYGPATH_W) 'test-gsub-get-alternates.cc'; else $(CYGPATH_W) '$(srcdir)/test-gsub-get-alternates.cc'; fi`
 
 test_gsub_would_substitute-test-gsub-would-substitute.o: test-gsub-would-substitute.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_would_substitute_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_gsub_would_substitute-test-gsub-would-substitute.o -MD -MP -MF $(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Tpo -c -o test_gsub_would_substitute-test-gsub-would-substitute.o `test -f 'test-gsub-would-substitute.cc' || echo '$(srcdir)/'`test-gsub-would-substitute.cc
@@ -4248,6 +4280,7 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/test_classdef_graph-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_classdef_graph-test-classdef-graph.Po
 	-rm -f ./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po
+	-rm -f ./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
 	-rm -f ./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
@@ -4415,6 +4448,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/test_classdef_graph-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_classdef_graph-test-classdef-graph.Po
 	-rm -f ./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po
+	-rm -f ./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
 	-rm -f ./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
