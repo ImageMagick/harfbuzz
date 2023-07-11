@@ -130,28 +130,32 @@ check_PROGRAMS = $(am__EXEEXT_2)
 @HAVE_CORETEXT_TRUE@am__append_31 = $(CORETEXT_LIBS)
 @HAVE_CORETEXT_TRUE@am__append_32 = $(HB_CORETEXT_sources)
 @HAVE_CORETEXT_TRUE@am__append_33 = $(HB_CORETEXT_headers)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_34 = $(ICU_CFLAGS)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_35 = $(ICU_LIBS)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_36 = $(HB_ICU_sources)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_37 = $(HB_ICU_headers)
-@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_38 = libharfbuzz-icu.la
-@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_39 = $(HB_ICU_headers)
-@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_40 = harfbuzz-icu.pc
-@HAVE_GOBJECT_TRUE@am__append_41 = libharfbuzz-gobject.la
-@HAVE_GOBJECT_TRUE@am__append_42 = $(HB_GOBJECT_DIST_headers)
-@HAVE_GOBJECT_TRUE@am__append_43 = $(HB_GOBJECT_NODIST_headers)
-@HAVE_GOBJECT_TRUE@am__append_44 = harfbuzz-gobject.pc
-@HAVE_GOBJECT_TRUE@am__append_45 = \
+@HAVE_WASM_TRUE@am__append_34 = $(WASM_CFLAGS)
+@HAVE_WASM_TRUE@am__append_35 = $(WASM_LIBS)
+@HAVE_WASM_TRUE@am__append_36 = $(HB_WASM_sources)
+@HAVE_WASM_TRUE@am__append_37 = $(HB_WASM_headers)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_38 = $(ICU_CFLAGS)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_39 = $(ICU_LIBS)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_40 = $(HB_ICU_sources)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__append_41 = $(HB_ICU_headers)
+@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_42 = libharfbuzz-icu.la
+@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_43 = $(HB_ICU_headers)
+@HAVE_ICU_BUILTIN_FALSE@@HAVE_ICU_TRUE@am__append_44 = harfbuzz-icu.pc
+@HAVE_GOBJECT_TRUE@am__append_45 = libharfbuzz-gobject.la
+@HAVE_GOBJECT_TRUE@am__append_46 = $(HB_GOBJECT_DIST_headers)
+@HAVE_GOBJECT_TRUE@am__append_47 = $(HB_GOBJECT_NODIST_headers)
+@HAVE_GOBJECT_TRUE@am__append_48 = harfbuzz-gobject.pc
+@HAVE_GOBJECT_TRUE@am__append_49 = \
 @HAVE_GOBJECT_TRUE@	$(HB_GOBJECT_ENUM_sources) \
 @HAVE_GOBJECT_TRUE@	$(HB_GOBJECT_ENUM_headers) \
 @HAVE_GOBJECT_TRUE@	$(NULL)
 
-@HAVE_GOBJECT_TRUE@am__append_46 = \
+@HAVE_GOBJECT_TRUE@am__append_50 = \
 @HAVE_GOBJECT_TRUE@	$(HB_GOBJECT_ENUM_sources) \
 @HAVE_GOBJECT_TRUE@	$(HB_GOBJECT_ENUM_headers) \
 @HAVE_GOBJECT_TRUE@	$(NULL)
 
-@HAVE_GOBJECT_TRUE@am__append_47 = harfbuzz-gobject.def
+@HAVE_GOBJECT_TRUE@am__append_51 = harfbuzz-gobject.def
 noinst_PROGRAMS = main$(EXEEXT) test$(EXEEXT) \
 	test-buffer-serialize$(EXEEXT) test-ot-meta$(EXEEXT) \
 	test-ot-name$(EXEEXT) test-ot-glyphname$(EXEEXT) \
@@ -160,11 +164,11 @@ noinst_PROGRAMS = main$(EXEEXT) test$(EXEEXT) \
 	test-gsub-would-substitute$(EXEEXT) test-use-table$(EXEEXT) \
 	$(am__EXEEXT_1)
 bin_PROGRAMS =
-@WITH_LIBSTDCXX_FALSE@am__append_48 = \
+@WITH_LIBSTDCXX_FALSE@am__append_52 = \
 @WITH_LIBSTDCXX_FALSE@	check-libstdc++.py \
 @WITH_LIBSTDCXX_FALSE@	$(NULL)
 
-@HAVE_INTROSPECTION_TRUE@am__append_49 = $(gir_DATA) $(typelib_DATA)
+@HAVE_INTROSPECTION_TRUE@am__append_53 = $(gir_DATA) $(typelib_DATA)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_check_link_flag.m4 \
@@ -194,6 +198,7 @@ am__EXEEXT_2 = test-algs$(EXEEXT) test-array$(EXEEXT) \
 	test-set$(EXEEXT) test-serialize$(EXEEXT) \
 	test-unicode-ranges$(EXEEXT) test-vector$(EXEEXT) \
 	test-repacker$(EXEEXT) test-classdef-graph$(EXEEXT) \
+	test-instancer-solver$(EXEEXT) test-tuple-varstore$(EXEEXT) \
 	$(am__EXEEXT_1)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
@@ -287,15 +292,16 @@ libharfbuzz_subset_la_OBJECTS = $(am_libharfbuzz_subset_la_OBJECTS)
 @HAVE_UNISCRIBE_TRUE@am__DEPENDENCIES_6 = $(am__DEPENDENCIES_1)
 @HAVE_GDI_TRUE@am__DEPENDENCIES_7 = $(am__DEPENDENCIES_1)
 @HAVE_CORETEXT_TRUE@am__DEPENDENCIES_8 = $(am__DEPENDENCIES_1)
-am__DEPENDENCIES_9 = $(am__DEPENDENCIES_5) $(am__DEPENDENCIES_6) \
+@HAVE_WASM_TRUE@am__DEPENDENCIES_9 = $(am__DEPENDENCIES_1)
+am__DEPENDENCIES_10 = $(am__DEPENDENCIES_5) $(am__DEPENDENCIES_6) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_7) \
-	$(am__DEPENDENCIES_8)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__DEPENDENCIES_10 =  \
+	$(am__DEPENDENCIES_8) $(am__DEPENDENCIES_9)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__DEPENDENCIES_11 =  \
 @HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@	$(am__DEPENDENCIES_1)
-am__DEPENDENCIES_11 = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_3) \
-	$(am__DEPENDENCIES_4) $(am__DEPENDENCIES_9) \
-	$(am__DEPENDENCIES_10)
-libharfbuzz_la_DEPENDENCIES = $(am__DEPENDENCIES_11)
+am__DEPENDENCIES_12 = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_3) \
+	$(am__DEPENDENCIES_4) $(am__DEPENDENCIES_10) \
+	$(am__DEPENDENCIES_11)
+libharfbuzz_la_DEPENDENCIES = $(am__DEPENDENCIES_12)
 am__libharfbuzz_la_SOURCES_DIST = hb-aat-layout-ankr-table.hh \
 	hb-aat-layout-bsln-table.hh hb-aat-layout-common.hh \
 	hb-aat-layout-feat-table.hh hb-aat-layout-just-table.hh \
@@ -421,15 +427,18 @@ am__libharfbuzz_la_SOURCES_DIST = hb-aat-layout-ankr-table.hh \
 	hb-ot-shaper-myanmar-machine.hh hb-ot-shaper-use-machine.hh \
 	hb-glib.cc hb-ft.cc hb-ft-colr.hh hb-graphite2.cc \
 	hb-uniscribe.cc hb-directwrite.cc hb-gdi.cc hb-coretext.cc \
-	hb-icu.cc hb-aat-layout.h hb-aat.h hb-blob.h hb-buffer.h \
-	hb-common.h hb-cplusplus.hh hb-deprecated.h hb-draw.h \
-	hb-face.h hb-font.h hb-map.h hb-ot-color.h hb-ot-deprecated.h \
-	hb-ot-font.h hb-ot-layout.h hb-ot-math.h hb-ot-meta.h \
-	hb-ot-metrics.h hb-ot-name.h hb-ot-shape.h hb-ot-var.h hb-ot.h \
-	hb-paint.h hb-set.h hb-shape-plan.h hb-shape.h hb-style.h \
-	hb-unicode.h hb-version.h hb.h hb-glib.h hb-ft.h \
-	hb-graphite2.h hb-uniscribe.h hb-directwrite.h hb-gdi.h \
-	hb-coretext.h hb-icu.h
+	hb-wasm-api.cc hb-wasm-api.hh hb-wasm-api-blob.hh \
+	hb-wasm-api-buffer.hh hb-wasm-api-common.hh \
+	hb-wasm-api-face.hh hb-wasm-api-font.hh hb-wasm-api-shape.hh \
+	hb-wasm-shape.cc hb-icu.cc hb-aat-layout.h hb-aat.h hb-blob.h \
+	hb-buffer.h hb-common.h hb-cplusplus.hh hb-deprecated.h \
+	hb-draw.h hb-face.h hb-font.h hb-map.h hb-ot-color.h \
+	hb-ot-deprecated.h hb-ot-font.h hb-ot-layout.h hb-ot-math.h \
+	hb-ot-meta.h hb-ot-metrics.h hb-ot-name.h hb-ot-shape.h \
+	hb-ot-var.h hb-ot.h hb-paint.h hb-set.h hb-shape-plan.h \
+	hb-shape.h hb-style.h hb-unicode.h hb-version.h hb.h hb-glib.h \
+	hb-ft.h hb-graphite2.h hb-uniscribe.h hb-directwrite.h \
+	hb-gdi.h hb-coretext.h hb-wasm-api.h hb-icu.h
 am__objects_8 = libharfbuzz_la-hb-aat-layout.lo \
 	libharfbuzz_la-hb-aat-map.lo libharfbuzz_la-hb-blob.lo \
 	libharfbuzz_la-hb-buffer-serialize.lo \
@@ -481,138 +490,155 @@ am__objects_20 = libharfbuzz_la-hb-gdi.lo
 @HAVE_GDI_TRUE@am__objects_21 = $(am__objects_20)
 am__objects_22 = libharfbuzz_la-hb-coretext.lo
 @HAVE_CORETEXT_TRUE@am__objects_23 = $(am__objects_22)
-am__objects_24 = libharfbuzz_la-hb-icu.lo
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__objects_25 =  \
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@	$(am__objects_24)
-am__objects_26 = $(am__objects_8) $(am__objects_9) $(am__objects_11) \
+am__objects_24 = libharfbuzz_la-hb-wasm-api.lo \
+	libharfbuzz_la-hb-wasm-shape.lo $(am__objects_1)
+@HAVE_WASM_TRUE@am__objects_25 = $(am__objects_24)
+am__objects_26 = libharfbuzz_la-hb-icu.lo
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__objects_27 =  \
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@	$(am__objects_26)
+am__objects_28 = $(am__objects_8) $(am__objects_9) $(am__objects_11) \
 	$(am__objects_13) $(am__objects_15) $(am__objects_17) \
 	$(am__objects_19) $(am__objects_21) $(am__objects_23) \
-	$(am__objects_25)
-@HAVE_GLIB_TRUE@am__objects_27 = $(am__objects_1)
-@HAVE_FREETYPE_TRUE@am__objects_28 = $(am__objects_1)
-@HAVE_GRAPHITE2_TRUE@am__objects_29 = $(am__objects_1)
-@HAVE_UNISCRIBE_TRUE@am__objects_30 = $(am__objects_1)
-@HAVE_DIRECTWRITE_TRUE@am__objects_31 = $(am__objects_1)
-@HAVE_GDI_TRUE@am__objects_32 = $(am__objects_1)
-@HAVE_CORETEXT_TRUE@am__objects_33 = $(am__objects_1)
-@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__objects_34 =  \
+	$(am__objects_25) $(am__objects_27)
+@HAVE_GLIB_TRUE@am__objects_29 = $(am__objects_1)
+@HAVE_FREETYPE_TRUE@am__objects_30 = $(am__objects_1)
+@HAVE_GRAPHITE2_TRUE@am__objects_31 = $(am__objects_1)
+@HAVE_UNISCRIBE_TRUE@am__objects_32 = $(am__objects_1)
+@HAVE_DIRECTWRITE_TRUE@am__objects_33 = $(am__objects_1)
+@HAVE_GDI_TRUE@am__objects_34 = $(am__objects_1)
+@HAVE_CORETEXT_TRUE@am__objects_35 = $(am__objects_1)
+@HAVE_WASM_TRUE@am__objects_36 = $(am__objects_1)
+@HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@am__objects_37 =  \
 @HAVE_ICU_BUILTIN_TRUE@@HAVE_ICU_TRUE@	$(am__objects_1)
-am__objects_35 = $(am__objects_9) $(am__objects_27) $(am__objects_28) \
-	$(am__objects_29) $(am__objects_30) $(am__objects_31) \
-	$(am__objects_32) $(am__objects_33) $(am__objects_34)
-am_libharfbuzz_la_OBJECTS = $(am__objects_26) $(am__objects_35)
+am__objects_38 = $(am__objects_9) $(am__objects_29) $(am__objects_30) \
+	$(am__objects_31) $(am__objects_32) $(am__objects_33) \
+	$(am__objects_34) $(am__objects_35) $(am__objects_36) \
+	$(am__objects_37)
+am_libharfbuzz_la_OBJECTS = $(am__objects_28) $(am__objects_38)
 libharfbuzz_la_OBJECTS = $(am_libharfbuzz_la_OBJECTS)
 am_main_OBJECTS = main-main.$(OBJEXT)
 main_OBJECTS = $(am_main_OBJECTS)
-main_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+main_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_OBJECTS = test-test.$(OBJEXT)
 test_OBJECTS = $(am_test_OBJECTS)
-test_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11) \
+test_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12) \
 	$(am__DEPENDENCIES_1)
 am_test_algs_OBJECTS = test_algs-test-algs.$(OBJEXT) \
 	test_algs-hb-static.$(OBJEXT)
 test_algs_OBJECTS = $(am_test_algs_OBJECTS)
-am__DEPENDENCIES_12 = libharfbuzz.la $(am__DEPENDENCIES_11)
-test_algs_DEPENDENCIES = $(am__DEPENDENCIES_12)
+am__DEPENDENCIES_13 = libharfbuzz.la $(am__DEPENDENCIES_12)
+test_algs_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_array_OBJECTS = test_array-test-array.$(OBJEXT)
 test_array_OBJECTS = $(am_test_array_OBJECTS)
-test_array_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+test_array_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_bimap_OBJECTS = test_bimap-test-bimap.$(OBJEXT) \
 	test_bimap-hb-static.$(OBJEXT)
 test_bimap_OBJECTS = $(am_test_bimap_OBJECTS)
-test_bimap_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_bimap_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_buffer_serialize_OBJECTS =  \
 	test_buffer_serialize-test-buffer-serialize.$(OBJEXT)
 test_buffer_serialize_OBJECTS = $(am_test_buffer_serialize_OBJECTS)
 test_buffer_serialize_DEPENDENCIES = libharfbuzz.la \
-	$(am__DEPENDENCIES_11)
+	$(am__DEPENDENCIES_12)
 am_test_classdef_graph_OBJECTS =  \
 	test_classdef_graph-test-classdef-graph.$(OBJEXT) \
 	test_classdef_graph-hb-static.$(OBJEXT) \
 	test_classdef_graph-gsubgpos-context.$(OBJEXT)
 test_classdef_graph_OBJECTS = $(am_test_classdef_graph_OBJECTS)
 test_classdef_graph_DEPENDENCIES = libharfbuzz.la \
-	libharfbuzz-subset.la $(am__DEPENDENCIES_11)
+	libharfbuzz-subset.la $(am__DEPENDENCIES_12)
 am_test_gpos_size_params_OBJECTS =  \
 	test_gpos_size_params-test-gpos-size-params.$(OBJEXT)
 test_gpos_size_params_OBJECTS = $(am_test_gpos_size_params_OBJECTS)
 test_gpos_size_params_DEPENDENCIES = libharfbuzz.la \
-	$(am__DEPENDENCIES_11)
+	$(am__DEPENDENCIES_12)
 am_test_gsub_get_alternates_OBJECTS =  \
 	test_gsub_get_alternates-test-gsub-get-alternates.$(OBJEXT)
 test_gsub_get_alternates_OBJECTS =  \
 	$(am_test_gsub_get_alternates_OBJECTS)
 test_gsub_get_alternates_DEPENDENCIES = libharfbuzz.la \
-	$(am__DEPENDENCIES_11)
+	$(am__DEPENDENCIES_12)
 am_test_gsub_would_substitute_OBJECTS = test_gsub_would_substitute-test-gsub-would-substitute.$(OBJEXT)
 test_gsub_would_substitute_OBJECTS =  \
 	$(am_test_gsub_would_substitute_OBJECTS)
 test_gsub_would_substitute_DEPENDENCIES = libharfbuzz.la \
-	$(am__DEPENDENCIES_11) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_12) $(am__DEPENDENCIES_1)
+am_test_instancer_solver_OBJECTS =  \
+	test_instancer_solver-test-subset-instancer-solver.$(OBJEXT) \
+	test_instancer_solver-hb-subset-instancer-solver.$(OBJEXT) \
+	test_instancer_solver-hb-static.$(OBJEXT)
+test_instancer_solver_OBJECTS = $(am_test_instancer_solver_OBJECTS)
+test_instancer_solver_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_iter_OBJECTS = test_iter-test-iter.$(OBJEXT) \
 	test_iter-hb-static.$(OBJEXT)
 test_iter_OBJECTS = $(am_test_iter_OBJECTS)
-test_iter_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_iter_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_machinery_OBJECTS = test_machinery-test-machinery.$(OBJEXT) \
 	test_machinery-hb-static.$(OBJEXT)
 test_machinery_OBJECTS = $(am_test_machinery_OBJECTS)
-test_machinery_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_machinery_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_map_OBJECTS = test_map-test-map.$(OBJEXT) \
 	test_map-hb-static.$(OBJEXT)
 test_map_OBJECTS = $(am_test_map_OBJECTS)
-test_map_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_map_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_multimap_OBJECTS = test_multimap-test-multimap.$(OBJEXT) \
 	test_multimap-hb-static.$(OBJEXT)
 test_multimap_OBJECTS = $(am_test_multimap_OBJECTS)
-test_multimap_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_multimap_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_number_OBJECTS = test_number-test-number.$(OBJEXT) \
 	test_number-hb-number.$(OBJEXT)
 test_number_OBJECTS = $(am_test_number_OBJECTS)
-test_number_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_number_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_ot_glyphname_OBJECTS =  \
 	test_ot_glyphname-test-ot-glyphname.$(OBJEXT)
 test_ot_glyphname_OBJECTS = $(am_test_ot_glyphname_OBJECTS)
-test_ot_glyphname_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+test_ot_glyphname_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_ot_meta_OBJECTS = test_ot_meta-test-ot-meta.$(OBJEXT)
 test_ot_meta_OBJECTS = $(am_test_ot_meta_OBJECTS)
-test_ot_meta_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+test_ot_meta_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_ot_name_OBJECTS = test_ot_name-test-ot-name.$(OBJEXT)
 test_ot_name_OBJECTS = $(am_test_ot_name_OBJECTS)
-test_ot_name_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+test_ot_name_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_ot_tag_OBJECTS = test_ot_tag-hb-ot-tag.$(OBJEXT)
 test_ot_tag_OBJECTS = $(am_test_ot_tag_OBJECTS)
-test_ot_tag_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_ot_tag_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_priority_queue_OBJECTS =  \
 	test_priority_queue-test-priority-queue.$(OBJEXT) \
 	test_priority_queue-hb-static.$(OBJEXT)
 test_priority_queue_OBJECTS = $(am_test_priority_queue_OBJECTS)
 test_priority_queue_DEPENDENCIES = libharfbuzz.la \
-	$(am__DEPENDENCIES_11)
+	$(am__DEPENDENCIES_12)
 am_test_repacker_OBJECTS = test_repacker-test-repacker.$(OBJEXT) \
 	test_repacker-hb-static.$(OBJEXT) \
 	test_repacker-gsubgpos-context.$(OBJEXT)
 test_repacker_OBJECTS = $(am_test_repacker_OBJECTS)
 test_repacker_DEPENDENCIES = libharfbuzz.la libharfbuzz-subset.la \
-	$(am__DEPENDENCIES_11)
+	$(am__DEPENDENCIES_12)
 am_test_serialize_OBJECTS = test_serialize-test-serialize.$(OBJEXT) \
 	test_serialize-hb-static.$(OBJEXT)
 test_serialize_OBJECTS = $(am_test_serialize_OBJECTS)
-test_serialize_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_serialize_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_set_OBJECTS = test_set-test-set.$(OBJEXT) \
 	test_set-hb-static.$(OBJEXT)
 test_set_OBJECTS = $(am_test_set_OBJECTS)
-test_set_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_set_DEPENDENCIES = $(am__DEPENDENCIES_13)
+am_test_tuple_varstore_OBJECTS =  \
+	test_tuple_varstore-test-tuple-varstore.$(OBJEXT) \
+	test_tuple_varstore-hb-subset-instancer-solver.$(OBJEXT) \
+	test_tuple_varstore-hb-static.$(OBJEXT)
+test_tuple_varstore_OBJECTS = $(am_test_tuple_varstore_OBJECTS)
+test_tuple_varstore_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_unicode_ranges_OBJECTS =  \
 	test_unicode_ranges-test-unicode-ranges.$(OBJEXT)
 test_unicode_ranges_OBJECTS = $(am_test_unicode_ranges_OBJECTS)
-test_unicode_ranges_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_unicode_ranges_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_use_table_OBJECTS = test_use_table-test-use-table.$(OBJEXT)
 test_use_table_OBJECTS = $(am_test_use_table_OBJECTS)
-test_use_table_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_11)
+test_use_table_DEPENDENCIES = libharfbuzz.la $(am__DEPENDENCIES_12)
 am_test_vector_OBJECTS = test_vector-test-vector.$(OBJEXT) \
 	test_vector-hb-static.$(OBJEXT)
 test_vector_OBJECTS = $(am_test_vector_OBJECTS)
-test_vector_DEPENDENCIES = $(am__DEPENDENCIES_12)
+test_vector_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am__dist_check_SCRIPTS_DIST = check-c-linkage-decls.py \
 	check-externs.py check-header-guards.py check-includes.py \
 	check-static-inits.py check-symbols.py check-libstdc++.py
@@ -699,6 +725,8 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/libharfbuzz_la-hb-ucd.Plo \
 	./$(DEPDIR)/libharfbuzz_la-hb-unicode.Plo \
 	./$(DEPDIR)/libharfbuzz_la-hb-uniscribe.Plo \
+	./$(DEPDIR)/libharfbuzz_la-hb-wasm-api.Plo \
+	./$(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Plo \
 	./$(DEPDIR)/libharfbuzz_subset_la-gsubgpos-context.Plo \
 	./$(DEPDIR)/libharfbuzz_subset_la-hb-number.Plo \
 	./$(DEPDIR)/libharfbuzz_subset_la-hb-ot-cff1-table.Plo \
@@ -725,6 +753,9 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po \
 	./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po \
 	./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po \
+	./$(DEPDIR)/test_instancer_solver-hb-static.Po \
+	./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po \
+	./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po \
 	./$(DEPDIR)/test_iter-hb-static.Po \
 	./$(DEPDIR)/test_iter-test-iter.Po \
 	./$(DEPDIR)/test_machinery-hb-static.Po \
@@ -748,6 +779,9 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/test_serialize-test-serialize.Po \
 	./$(DEPDIR)/test_set-hb-static.Po \
 	./$(DEPDIR)/test_set-test-set.Po \
+	./$(DEPDIR)/test_tuple_varstore-hb-static.Po \
+	./$(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po \
+	./$(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po \
 	./$(DEPDIR)/test_unicode_ranges-test-unicode-ranges.Po \
 	./$(DEPDIR)/test_use_table-test-use-table.Po \
 	./$(DEPDIR)/test_vector-hb-static.Po \
@@ -799,15 +833,16 @@ SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_classdef_graph_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
 	$(test_gsub_get_alternates_SOURCES) \
-	$(test_gsub_would_substitute_SOURCES) $(test_iter_SOURCES) \
+	$(test_gsub_would_substitute_SOURCES) \
+	$(test_instancer_solver_SOURCES) $(test_iter_SOURCES) \
 	$(test_machinery_SOURCES) $(test_map_SOURCES) \
 	$(test_multimap_SOURCES) $(test_number_SOURCES) \
 	$(test_ot_glyphname_SOURCES) $(test_ot_meta_SOURCES) \
 	$(test_ot_name_SOURCES) $(test_ot_tag_SOURCES) \
 	$(test_priority_queue_SOURCES) $(test_repacker_SOURCES) \
 	$(test_serialize_SOURCES) $(test_set_SOURCES) \
-	$(test_unicode_ranges_SOURCES) $(test_use_table_SOURCES) \
-	$(test_vector_SOURCES)
+	$(test_tuple_varstore_SOURCES) $(test_unicode_ranges_SOURCES) \
+	$(test_use_table_SOURCES) $(test_vector_SOURCES)
 DIST_SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(am__libharfbuzz_gobject_la_SOURCES_DIST) \
 	$(am__libharfbuzz_icu_la_SOURCES_DIST) \
@@ -818,15 +853,16 @@ DIST_SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_classdef_graph_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
 	$(test_gsub_get_alternates_SOURCES) \
-	$(test_gsub_would_substitute_SOURCES) $(test_iter_SOURCES) \
+	$(test_gsub_would_substitute_SOURCES) \
+	$(test_instancer_solver_SOURCES) $(test_iter_SOURCES) \
 	$(test_machinery_SOURCES) $(test_map_SOURCES) \
 	$(test_multimap_SOURCES) $(test_number_SOURCES) \
 	$(test_ot_glyphname_SOURCES) $(test_ot_meta_SOURCES) \
 	$(test_ot_name_SOURCES) $(test_ot_tag_SOURCES) \
 	$(test_priority_queue_SOURCES) $(test_repacker_SOURCES) \
 	$(test_serialize_SOURCES) $(test_set_SOURCES) \
-	$(test_unicode_ranges_SOURCES) $(test_use_table_SOURCES) \
-	$(test_vector_SOURCES)
+	$(test_tuple_varstore_SOURCES) $(test_unicode_ranges_SOURCES) \
+	$(test_use_table_SOURCES) $(test_vector_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -849,7 +885,7 @@ am__pkginclude_HEADERS_DIST = hb-aat-layout.h hb-aat.h hb-blob.h \
 	hb-ot-var.h hb-ot.h hb-paint.h hb-set.h hb-shape-plan.h \
 	hb-shape.h hb-style.h hb-unicode.h hb-version.h hb.h hb-glib.h \
 	hb-ft.h hb-graphite2.h hb-uniscribe.h hb-directwrite.h \
-	hb-gdi.h hb-coretext.h hb-icu.h hb-subset.h \
+	hb-gdi.h hb-coretext.h hb-wasm-api.h hb-icu.h hb-subset.h \
 	hb-subset-repacker.h hb-cairo.h hb-gobject.h \
 	hb-gobject-structs.h
 HEADERS = $(nodist_pkginclude_HEADERS) $(pkginclude_HEADERS)
@@ -1221,6 +1257,8 @@ STRIP = @STRIP@
 UNISCRIBE_CFLAGS = @UNISCRIBE_CFLAGS@
 UNISCRIBE_LIBS = @UNISCRIBE_LIBS@
 VERSION = @VERSION@
+WASM_CFLAGS = @WASM_CFLAGS@
+WASM_LIBS = @WASM_LIBS@
 _GI_EXP_DATADIR = @_GI_EXP_DATADIR@
 _GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
@@ -1282,7 +1320,7 @@ top_srcdir = @top_srcdir@
 NULL = 
 SUBDIRS = 
 DIST_SUBDIRS = 
-BUILT_SOURCES = hb-version.h harfbuzz-subset.cc $(am__append_45) \
+BUILT_SOURCES = hb-version.h harfbuzz-subset.cc $(am__append_49) \
 	hb-features.h $(RAGEL_GENERATED) harfbuzz.cc
 EXTRA_DIST = harfbuzz.cc harfbuzz-subset.cc meson.build \
 	fix_get_types.py hb-version.h.in hb-features.h.in \
@@ -1290,12 +1328,12 @@ EXTRA_DIST = harfbuzz.cc harfbuzz-subset.cc meson.build \
 	harfbuzz-cairo.pc.in harfbuzz-icu.pc.in harfbuzz-gobject.pc.in \
 	hb-gobject-enums.cc.tmpl hb-gobject-enums.h.tmpl $(NULL) \
 	$(GENERATORS) $(HB_BASE_RAGEL_sources) $(NULL)
-CLEANFILES = $(pkgconfig_DATA) $(DEF_FILES) $(am__append_49)
-DISTCLEANFILES = $(am__append_46) hb-features.h
+CLEANFILES = $(pkgconfig_DATA) $(DEF_FILES) $(am__append_53)
+DISTCLEANFILES = $(am__append_50) hb-features.h
 MAINTAINERCLEANFILES = 
 DISTCHECK_CONFIGURE_FLAGS = --enable-introspection
 lib_LTLIBRARIES = libharfbuzz.la libharfbuzz-subset.la \
-	libharfbuzz-cairo.la $(am__append_38) $(am__append_41)
+	libharfbuzz-cairo.la $(am__append_42) $(am__append_45)
 HB_BASE_sources = \
 	hb-aat-layout-ankr-table.hh \
 	hb-aat-layout-bsln-table.hh \
@@ -1628,10 +1666,21 @@ HB_GDI_sources = hb-gdi.cc
 HB_GDI_headers = hb-gdi.h
 HB_UNISCRIBE_sources = hb-uniscribe.cc
 HB_UNISCRIBE_headers = hb-uniscribe.h
-
-# Sources for libharfbuzz-gobject and libharfbuzz-icu
 HB_ICU_sources = hb-icu.cc
 HB_ICU_headers = hb-icu.h
+HB_WASM_sources = \
+	hb-wasm-api.cc \
+	hb-wasm-api.hh \
+	hb-wasm-api-blob.hh \
+	hb-wasm-api-buffer.hh \
+	hb-wasm-api-common.hh \
+	hb-wasm-api-face.hh \
+	hb-wasm-api-font.hh \
+	hb-wasm-api-shape.hh \
+	hb-wasm-shape.cc \
+	$(NULL)
+
+HB_WASM_headers = hb-wasm-api.h
 
 # Sources for libharfbuzz-subset
 HB_SUBSET_sources = \
@@ -1644,11 +1693,10 @@ HB_SUBSET_sources = \
 	hb-subset-cff-common.cc \
 	hb-subset-cff-common.hh \
 	hb-subset-cff1.cc \
-	hb-subset-cff1.hh \
 	hb-subset-cff2.cc \
-	hb-subset-cff2.hh \
 	hb-subset-input.cc \
 	hb-subset-input.hh \
+	hb-subset-instancer-solver.hh \
 	hb-subset-instancer-solver.cc \
 	hb-subset-accelerator.hh \
 	hb-subset-plan.cc \
@@ -1697,21 +1745,23 @@ HB_GOBJECT_sources = $(HB_GOBJECT_DIST_sources) $(HB_GOBJECT_NODIST_sources)
 HB_GOBJECT_headers = $(HB_GOBJECT_DIST_headers) $(HB_GOBJECT_NODIST_headers)
 HBCFLAGS = $(am__append_1) $(am__append_3) $(am__append_8) \
 	$(am__append_13) $(am__append_18) $(am__append_22) \
-	$(am__append_26) $(am__append_30) $(am__append_34)
+	$(am__append_26) $(am__append_30) $(am__append_34) \
+	$(am__append_38)
 
 # Put the library together
 HBLIBS = $(am__append_4) $(am__append_9) $(am__append_14) \
-	$(HBNONPCLIBS) $(am__append_35)
+	$(HBNONPCLIBS) $(am__append_39)
 HBNONPCLIBS = $(am__append_2) $(am__append_19) $(am__append_23) \
-	$(am__append_27) $(am__append_31)
+	$(am__append_27) $(am__append_31) $(am__append_35)
 HBDEPS = $(am__append_5) $(am__append_10) $(am__append_15)
 HBSOURCES = $(HB_BASE_sources) $(HB_BASE_RAGEL_GENERATED_sources) \
 	$(am__append_6) $(am__append_11) $(am__append_16) \
 	$(am__append_20) $(am__append_24) $(am__append_28) \
-	$(am__append_32) $(am__append_36)
+	$(am__append_32) $(am__append_36) $(am__append_40)
 HBHEADERS = $(HB_BASE_headers) $(am__append_7) $(am__append_12) \
 	$(am__append_17) $(am__append_21) $(am__append_25) \
-	$(am__append_29) $(am__append_33) $(am__append_37)
+	$(am__append_29) $(am__append_33) $(am__append_37) \
+	$(am__append_41)
 @HAVE_GLIB_FALSE@HB_HAS_GLIB_DEF = undef HB_HAS_GLIB
 @HAVE_GLIB_TRUE@HB_HAS_GLIB_DEF = define HB_HAS_GLIB 1
 @HAVE_FREETYPE_FALSE@HB_HAS_FREETYPE_DEF = undef HB_HAS_FREETYPE
@@ -1726,6 +1776,8 @@ HBHEADERS = $(HB_BASE_headers) $(am__append_7) $(am__append_12) \
 @HAVE_GDI_TRUE@HB_HAS_GDI_DEF = define HB_HAS_GDI 1
 @HAVE_CORETEXT_FALSE@HB_HAS_CORETEXT_DEF = undef HB_HAS_CORETEXT
 @HAVE_CORETEXT_TRUE@HB_HAS_CORETEXT_DEF = define HB_HAS_CORETEXT 1
+@HAVE_WASM_FALSE@HB_HAS_WASM_DEF = undef HB_HAS_WASM
+@HAVE_WASM_TRUE@HB_HAS_WASM_DEF = define HB_HAS_WASM 1
 @OS_WIN32_TRUE@export_symbols = -export-symbols harfbuzz.def
 @OS_WIN32_TRUE@harfbuzz_def_dependency = harfbuzz.def
 @OS_WIN32_TRUE@export_symbols_subset = -export-symbols harfbuzz-subset.def
@@ -1749,11 +1801,11 @@ libharfbuzz_la_LDFLAGS = $(base_link_flags) $(export_symbols) $(CODE_COVERAGE_LD
 libharfbuzz_la_LIBADD = $(HBLIBS)
 EXTRA_libharfbuzz_la_DEPENDENCIES = $(harfbuzz_def_dependency)
 pkginclude_HEADERS = $(HBHEADERS) $(HB_SUBSET_headers) \
-	$(HB_CAIRO_headers) $(am__append_39) $(am__append_42)
-nodist_pkginclude_HEADERS = $(am__append_43)
+	$(HB_CAIRO_headers) $(am__append_43) $(am__append_46)
+nodist_pkginclude_HEADERS = $(am__append_47)
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = harfbuzz.pc harfbuzz-subset.pc harfbuzz-cairo.pc \
-	$(am__append_40) $(am__append_44)
+	$(am__append_44) $(am__append_48)
 cmakedir = $(libdir)/cmake/harfbuzz
 cmake_DATA = harfbuzz-config.cmake
 libharfbuzz_subset_la_LINK = $(chosen_linker) $(libharfbuzz_subset_la_LDFLAGS)
@@ -1785,7 +1837,7 @@ EXTRA_libharfbuzz_cairo_la_DEPENDENCIES = $(harfbuzz_cairo_def_dependency)
 @HAVE_GOBJECT_FALSE@HB_HAS_GOBJECT_DEF = undef HB_HAS_GOBJECT
 @HAVE_GOBJECT_TRUE@HB_HAS_GOBJECT_DEF = define HB_HAS_GOBJECT 1
 DEF_FILES = harfbuzz.def harfbuzz-subset.def harfbuzz-icu.def \
-	harfbuzz-deprecated-symbols.txt $(am__append_47)
+	harfbuzz-deprecated-symbols.txt $(am__append_51)
 GENERATORS = \
 	gen-arabic-joining-list.py \
 	gen-arabic-table.py \
@@ -1853,6 +1905,8 @@ COMPILED_TESTS = \
 	test-vector \
 	test-repacker \
 	test-classdef-graph \
+	test-instancer-solver \
+	test-tuple-varstore \
 	$(NULL)
 
 COMPILED_TESTS_CPPFLAGS = $(HBCFLAGS) -DMAIN -UNDEBUG
@@ -1905,9 +1959,15 @@ test_unicode_ranges_LDADD = $(COMPILED_TESTS_LDADD)
 test_vector_SOURCES = test-vector.cc hb-static.cc
 test_vector_CPPFLAGS = $(COMPILED_TESTS_CPPFLAGS)
 test_vector_LDADD = $(COMPILED_TESTS_LDADD)
+test_instancer_solver_SOURCES = test-subset-instancer-solver.cc hb-subset-instancer-solver.cc hb-static.cc
+test_instancer_solver_CPPFLAGS = $(COMPILED_TESTS_CPPFLAGS)
+test_instancer_solver_LDADD = $(COMPILED_TESTS_LDADD)
+test_tuple_varstore_SOURCES = test-tuple-varstore.cc hb-subset-instancer-solver.cc hb-static.cc
+test_tuple_varstore_CPPFLAGS = $(COMPILED_TESTS_CPPFLAGS)
+test_tuple_varstore_LDADD = $(COMPILED_TESTS_LDADD)
 dist_check_SCRIPTS = check-c-linkage-decls.py check-externs.py \
 	check-header-guards.py check-includes.py check-static-inits.py \
-	check-symbols.py $(NULL) $(am__append_48)
+	check-symbols.py $(NULL) $(am__append_52)
 TESTS_ENVIRONMENT = \
 	srcdir="$(srcdir)" \
 	base_srcdir="$(srcdir)" \
@@ -2171,6 +2231,10 @@ test-gsub-would-substitute$(EXEEXT): $(test_gsub_would_substitute_OBJECTS) $(tes
 	@rm -f test-gsub-would-substitute$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_gsub_would_substitute_OBJECTS) $(test_gsub_would_substitute_LDADD) $(LIBS)
 
+test-instancer-solver$(EXEEXT): $(test_instancer_solver_OBJECTS) $(test_instancer_solver_DEPENDENCIES) $(EXTRA_test_instancer_solver_DEPENDENCIES) 
+	@rm -f test-instancer-solver$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_instancer_solver_OBJECTS) $(test_instancer_solver_LDADD) $(LIBS)
+
 test-iter$(EXEEXT): $(test_iter_OBJECTS) $(test_iter_DEPENDENCIES) $(EXTRA_test_iter_DEPENDENCIES) 
 	@rm -f test-iter$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_iter_OBJECTS) $(test_iter_LDADD) $(LIBS)
@@ -2222,6 +2286,10 @@ test-serialize$(EXEEXT): $(test_serialize_OBJECTS) $(test_serialize_DEPENDENCIES
 test-set$(EXEEXT): $(test_set_OBJECTS) $(test_set_DEPENDENCIES) $(EXTRA_test_set_DEPENDENCIES) 
 	@rm -f test-set$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_set_OBJECTS) $(test_set_LDADD) $(LIBS)
+
+test-tuple-varstore$(EXEEXT): $(test_tuple_varstore_OBJECTS) $(test_tuple_varstore_DEPENDENCIES) $(EXTRA_test_tuple_varstore_DEPENDENCIES) 
+	@rm -f test-tuple-varstore$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_tuple_varstore_OBJECTS) $(test_tuple_varstore_LDADD) $(LIBS)
 
 test-unicode-ranges$(EXEEXT): $(test_unicode_ranges_OBJECTS) $(test_unicode_ranges_DEPENDENCIES) $(EXTRA_test_unicode_ranges_DEPENDENCIES) 
 	@rm -f test-unicode-ranges$(EXEEXT)
@@ -2308,6 +2376,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_la-hb-ucd.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_la-hb-unicode.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_la-hb-uniscribe.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_la-hb-wasm-api.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_subset_la-gsubgpos-context.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_subset_la-hb-number.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libharfbuzz_subset_la-hb-ot-cff1-table.Plo@am__quote@ # am--include-marker
@@ -2335,6 +2405,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-hb-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-test-iter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_machinery-hb-static.Po@am__quote@ # am--include-marker
@@ -2358,6 +2431,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_serialize-test-serialize.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_set-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_set-test-set.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_tuple_varstore-hb-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_unicode_ranges-test-unicode-ranges.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_use_table-test-use-table.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_vector-hb-static.Po@am__quote@ # am--include-marker
@@ -2943,6 +3019,20 @@ libharfbuzz_la-hb-coretext.lo: hb-coretext.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libharfbuzz_la-hb-coretext.lo `test -f 'hb-coretext.cc' || echo '$(srcdir)/'`hb-coretext.cc
 
+libharfbuzz_la-hb-wasm-api.lo: hb-wasm-api.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libharfbuzz_la-hb-wasm-api.lo -MD -MP -MF $(DEPDIR)/libharfbuzz_la-hb-wasm-api.Tpo -c -o libharfbuzz_la-hb-wasm-api.lo `test -f 'hb-wasm-api.cc' || echo '$(srcdir)/'`hb-wasm-api.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libharfbuzz_la-hb-wasm-api.Tpo $(DEPDIR)/libharfbuzz_la-hb-wasm-api.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-wasm-api.cc' object='libharfbuzz_la-hb-wasm-api.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libharfbuzz_la-hb-wasm-api.lo `test -f 'hb-wasm-api.cc' || echo '$(srcdir)/'`hb-wasm-api.cc
+
+libharfbuzz_la-hb-wasm-shape.lo: hb-wasm-shape.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libharfbuzz_la-hb-wasm-shape.lo -MD -MP -MF $(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Tpo -c -o libharfbuzz_la-hb-wasm-shape.lo `test -f 'hb-wasm-shape.cc' || echo '$(srcdir)/'`hb-wasm-shape.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Tpo $(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Plo
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-wasm-shape.cc' object='libharfbuzz_la-hb-wasm-shape.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libharfbuzz_la-hb-wasm-shape.lo `test -f 'hb-wasm-shape.cc' || echo '$(srcdir)/'`hb-wasm-shape.cc
+
 libharfbuzz_la-hb-icu.lo: hb-icu.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libharfbuzz_la_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libharfbuzz_la-hb-icu.lo -MD -MP -MF $(DEPDIR)/libharfbuzz_la-hb-icu.Tpo -c -o libharfbuzz_la-hb-icu.lo `test -f 'hb-icu.cc' || echo '$(srcdir)/'`hb-icu.cc
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libharfbuzz_la-hb-icu.Tpo $(DEPDIR)/libharfbuzz_la-hb-icu.Plo
@@ -3145,6 +3235,48 @@ test_gsub_would_substitute-test-gsub-would-substitute.obj: test-gsub-would-subst
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-gsub-would-substitute.cc' object='test_gsub_would_substitute-test-gsub-would-substitute.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_gsub_would_substitute_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_gsub_would_substitute-test-gsub-would-substitute.obj `if test -f 'test-gsub-would-substitute.cc'; then $(CYGPATH_W) 'test-gsub-would-substitute.cc'; else $(CYGPATH_W) '$(srcdir)/test-gsub-would-substitute.cc'; fi`
+
+test_instancer_solver-test-subset-instancer-solver.o: test-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-test-subset-instancer-solver.o -MD -MP -MF $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Tpo -c -o test_instancer_solver-test-subset-instancer-solver.o `test -f 'test-subset-instancer-solver.cc' || echo '$(srcdir)/'`test-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Tpo $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-subset-instancer-solver.cc' object='test_instancer_solver-test-subset-instancer-solver.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-test-subset-instancer-solver.o `test -f 'test-subset-instancer-solver.cc' || echo '$(srcdir)/'`test-subset-instancer-solver.cc
+
+test_instancer_solver-test-subset-instancer-solver.obj: test-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-test-subset-instancer-solver.obj -MD -MP -MF $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Tpo -c -o test_instancer_solver-test-subset-instancer-solver.obj `if test -f 'test-subset-instancer-solver.cc'; then $(CYGPATH_W) 'test-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/test-subset-instancer-solver.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Tpo $(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-subset-instancer-solver.cc' object='test_instancer_solver-test-subset-instancer-solver.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-test-subset-instancer-solver.obj `if test -f 'test-subset-instancer-solver.cc'; then $(CYGPATH_W) 'test-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/test-subset-instancer-solver.cc'; fi`
+
+test_instancer_solver-hb-subset-instancer-solver.o: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-hb-subset-instancer-solver.o -MD -MP -MF $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Tpo -c -o test_instancer_solver-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_instancer_solver-hb-subset-instancer-solver.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+
+test_instancer_solver-hb-subset-instancer-solver.obj: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-hb-subset-instancer-solver.obj -MD -MP -MF $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Tpo -c -o test_instancer_solver-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_instancer_solver-hb-subset-instancer-solver.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+
+test_instancer_solver-hb-static.o: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-hb-static.o -MD -MP -MF $(DEPDIR)/test_instancer_solver-hb-static.Tpo -c -o test_instancer_solver-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-hb-static.Tpo $(DEPDIR)/test_instancer_solver-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_instancer_solver-hb-static.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+
+test_instancer_solver-hb-static.obj: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_instancer_solver-hb-static.obj -MD -MP -MF $(DEPDIR)/test_instancer_solver-hb-static.Tpo -c -o test_instancer_solver-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_instancer_solver-hb-static.Tpo $(DEPDIR)/test_instancer_solver-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_instancer_solver-hb-static.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
 
 test_iter-test-iter.o: test-iter.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_iter_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_iter-test-iter.o -MD -MP -MF $(DEPDIR)/test_iter-test-iter.Tpo -c -o test_iter-test-iter.o `test -f 'test-iter.cc' || echo '$(srcdir)/'`test-iter.cc
@@ -3467,6 +3599,48 @@ test_set-hb-static.obj: hb-static.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_set-hb-static.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_set_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_set-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
+
+test_tuple_varstore-test-tuple-varstore.o: test-tuple-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-test-tuple-varstore.o -MD -MP -MF $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Tpo -c -o test_tuple_varstore-test-tuple-varstore.o `test -f 'test-tuple-varstore.cc' || echo '$(srcdir)/'`test-tuple-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Tpo $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-tuple-varstore.cc' object='test_tuple_varstore-test-tuple-varstore.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-test-tuple-varstore.o `test -f 'test-tuple-varstore.cc' || echo '$(srcdir)/'`test-tuple-varstore.cc
+
+test_tuple_varstore-test-tuple-varstore.obj: test-tuple-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-test-tuple-varstore.obj -MD -MP -MF $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Tpo -c -o test_tuple_varstore-test-tuple-varstore.obj `if test -f 'test-tuple-varstore.cc'; then $(CYGPATH_W) 'test-tuple-varstore.cc'; else $(CYGPATH_W) '$(srcdir)/test-tuple-varstore.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Tpo $(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-tuple-varstore.cc' object='test_tuple_varstore-test-tuple-varstore.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-test-tuple-varstore.obj `if test -f 'test-tuple-varstore.cc'; then $(CYGPATH_W) 'test-tuple-varstore.cc'; else $(CYGPATH_W) '$(srcdir)/test-tuple-varstore.cc'; fi`
+
+test_tuple_varstore-hb-subset-instancer-solver.o: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-hb-subset-instancer-solver.o -MD -MP -MF $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Tpo -c -o test_tuple_varstore-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_tuple_varstore-hb-subset-instancer-solver.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+
+test_tuple_varstore-hb-subset-instancer-solver.obj: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-hb-subset-instancer-solver.obj -MD -MP -MF $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Tpo -c -o test_tuple_varstore-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_tuple_varstore-hb-subset-instancer-solver.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+
+test_tuple_varstore-hb-static.o: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-hb-static.o -MD -MP -MF $(DEPDIR)/test_tuple_varstore-hb-static.Tpo -c -o test_tuple_varstore-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-hb-static.Tpo $(DEPDIR)/test_tuple_varstore-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_tuple_varstore-hb-static.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+
+test_tuple_varstore-hb-static.obj: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_tuple_varstore-hb-static.obj -MD -MP -MF $(DEPDIR)/test_tuple_varstore-hb-static.Tpo -c -o test_tuple_varstore-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_tuple_varstore-hb-static.Tpo $(DEPDIR)/test_tuple_varstore-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_tuple_varstore-hb-static.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_tuple_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_tuple_varstore-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
 
 test_unicode_ranges-test-unicode-ranges.o: test-unicode-ranges.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_unicode_ranges_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_unicode_ranges-test-unicode-ranges.o -MD -MP -MF $(DEPDIR)/test_unicode_ranges-test-unicode-ranges.Tpo -c -o test_unicode_ranges-test-unicode-ranges.o `test -f 'test-unicode-ranges.cc' || echo '$(srcdir)/'`test-unicode-ranges.cc
@@ -4008,6 +4182,20 @@ test-classdef-graph.log: test-classdef-graph$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test-instancer-solver.log: test-instancer-solver$(EXEEXT)
+	@p='test-instancer-solver$(EXEEXT)'; \
+	b='test-instancer-solver'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test-tuple-varstore.log: test-tuple-varstore$(EXEEXT)
+	@p='test-tuple-varstore$(EXEEXT)'; \
+	b='test-tuple-varstore'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 check-c-linkage-decls.py.log: check-c-linkage-decls.py
 	@p='check-c-linkage-decls.py'; \
 	b='check-c-linkage-decls.py'; \
@@ -4256,6 +4444,8 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-ucd.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-unicode.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-uniscribe.Plo
+	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-wasm-api.Plo
+	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-gsubgpos-context.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-hb-number.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-hb-ot-cff1-table.Plo
@@ -4283,6 +4473,9 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po
 	-rm -f ./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
 	-rm -f ./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
 	-rm -f ./$(DEPDIR)/test_machinery-hb-static.Po
@@ -4306,6 +4499,9 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/test_serialize-test-serialize.Po
 	-rm -f ./$(DEPDIR)/test_set-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_set-test-set.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po
 	-rm -f ./$(DEPDIR)/test_unicode_ranges-test-unicode-ranges.Po
 	-rm -f ./$(DEPDIR)/test_use_table-test-use-table.Po
 	-rm -f ./$(DEPDIR)/test_vector-hb-static.Po
@@ -4424,6 +4620,8 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-ucd.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-unicode.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-uniscribe.Plo
+	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-wasm-api.Plo
+	-rm -f ./$(DEPDIR)/libharfbuzz_la-hb-wasm-shape.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-gsubgpos-context.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-hb-number.Plo
 	-rm -f ./$(DEPDIR)/libharfbuzz_subset_la-hb-ot-cff1-table.Plo
@@ -4451,6 +4649,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/test_gpos_size_params-test-gpos-size-params.Po
 	-rm -f ./$(DEPDIR)/test_gsub_get_alternates-test-gsub-get-alternates.Po
 	-rm -f ./$(DEPDIR)/test_gsub_would_substitute-test-gsub-would-substitute.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
 	-rm -f ./$(DEPDIR)/test_machinery-hb-static.Po
@@ -4474,6 +4675,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/test_serialize-test-serialize.Po
 	-rm -f ./$(DEPDIR)/test_set-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_set-test-set.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_tuple_varstore-test-tuple-varstore.Po
 	-rm -f ./$(DEPDIR)/test_unicode_ranges-test-unicode-ranges.Po
 	-rm -f ./$(DEPDIR)/test_use_table-test-use-table.Po
 	-rm -f ./$(DEPDIR)/test_vector-hb-static.Po
@@ -4567,16 +4771,17 @@ harfbuzz-subset.cc: Makefile.sources
 hb-features.h: hb-features.h.in $(top_builddir)/config.status
 	$(AM_V_GEN) $(SED) \
 		-e 's/mesondefine HB_HAS_CAIRO/$(HB_HAS_CAIRO_DEF)/' \
+		-e 's/mesondefine HB_HAS_CORETEXT/$(HB_HAS_CORETEXT_DEF)/' \
+		-e 's/mesondefine HB_HAS_DIRECTWRITE/$(HB_HAS_DIRECTWRITE_DEF)/' \
 		-e 's/mesondefine HB_HAS_FREETYPE/$(HB_HAS_FREETYPE_DEF)/' \
 		-e 's/mesondefine HB_HAS_GDI/$(HB_HAS_GDI_DEF)/' \
 		-e 's/mesondefine HB_HAS_GDI/$(HB_HAS_GDI_DEF)/' \
-		-e 's/mesondefine HB_HAS_GRAPHITE/$(HB_HAS_GRAPHITE_DEF)/' \
 		-e 's/mesondefine HB_HAS_GLIB/$(HB_HAS_GLIB_DEF)/' \
 		-e 's/mesondefine HB_HAS_GOBJECT/$(HB_HAS_GOBJECT_DEF)/' \
-		-e 's/mesondefine HB_HAS_UNISCRIBE/$(HB_HAS_UNISCRIBE_DEF)/' \
-		-e 's/mesondefine HB_HAS_DIRECTWRITE/$(HB_HAS_DIRECTWRITE_DEF)/' \
-		-e 's/mesondefine HB_HAS_CORETEXT/$(HB_HAS_CORETEXT_DEF)/' \
+		-e 's/mesondefine HB_HAS_GRAPHITE/$(HB_HAS_GRAPHITE_DEF)/' \
 		-e 's/mesondefine HB_HAS_ICU/$(HB_HAS_ICU_DEF)/' \
+		-e 's/mesondefine HB_HAS_UNISCRIBE/$(HB_HAS_UNISCRIBE_DEF)/' \
+		-e 's/mesondefine HB_HAS_WASM/$(HB_HAS_WASM_DEF)/' \
 		"$<" > "$@" || ($(RM) "$@"; false)
 
 %.pc: %.pc.in $(top_builddir)/config.status

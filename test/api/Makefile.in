@@ -145,6 +145,7 @@ am__EXEEXT_1 =
 @HAVE_CORETEXT_TRUE@@HAVE_GLIB_TRUE@	$(am__EXEEXT_1)
 @HAVE_GLIB_TRUE@am__EXEEXT_5 = test-aat-layout$(EXEEXT) \
 @HAVE_GLIB_TRUE@	test-baseline$(EXEEXT) \
+@HAVE_GLIB_TRUE@	test-base-minmax$(EXEEXT) \
 @HAVE_GLIB_TRUE@	test-be-glyph-advance$(EXEEXT) \
 @HAVE_GLIB_TRUE@	test-be-num-glyphs$(EXEEXT) test-blob$(EXEEXT) \
 @HAVE_GLIB_TRUE@	test-buffer$(EXEEXT) test-c$(EXEEXT) \
@@ -203,6 +204,12 @@ AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
+test_base_minmax_SOURCES = test-base-minmax.c
+test_base_minmax_OBJECTS = test-base-minmax.$(OBJEXT)
+test_base_minmax_LDADD = $(LDADD)
+@HAVE_GLIB_TRUE@test_base_minmax_DEPENDENCIES =  \
+@HAVE_GLIB_TRUE@	$(top_builddir)/src/libharfbuzz.la \
+@HAVE_GLIB_TRUE@	$(am__DEPENDENCIES_1)
 test_baseline_SOURCES = test-baseline.c
 test_baseline_OBJECTS = test-baseline.$(OBJEXT)
 test_baseline_LDADD = $(LDADD)
@@ -548,7 +555,7 @@ DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = ./$(DEPDIR)/test-aat-layout.Po \
-	./$(DEPDIR)/test-baseline.Po \
+	./$(DEPDIR)/test-base-minmax.Po ./$(DEPDIR)/test-baseline.Po \
 	./$(DEPDIR)/test-be-glyph-advance.Po \
 	./$(DEPDIR)/test-be-num-glyphs.Po ./$(DEPDIR)/test-blob.Po \
 	./$(DEPDIR)/test-buffer.Po \
@@ -629,27 +636,28 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = test-aat-layout.c test-baseline.c test-be-glyph-advance.c \
-	test-be-num-glyphs.c test-blob.c test-buffer.c test-c.c \
-	test-collect-unicodes.c test-common.c test-coretext.c \
-	$(test_cplusplus_SOURCES) test-draw.c test-extents.c \
-	test-font.c test-font-scale.c test-ft.c test-glyph-names.c \
-	test-instance-cff2.c test-map.c test-multithread.c \
-	test-object.c test-ot-alternates.c test-ot-collect-glyphs.c \
-	test-ot-color.c test-ot-extents-cff.c test-ot-face.c \
-	test-ot-glyphname.c test-ot-layout.c test-ot-ligature-carets.c \
-	test-ot-math.c test-ot-meta.c test-ot-metrics.c \
-	test-ot-metrics-tt-var.c test-ot-name.c test-ot-tag.c \
-	test-paint.c test-set.c test-shape.c test-style.c \
-	test-subset.c test-subset-cbdt.c test-subset-cff1.c \
-	test-subset-cff2.c test-subset-cmap.c test-subset-colr.c \
-	test-subset-drop-tables.c test-subset-glyf.c \
-	test-subset-gpos.c test-subset-gvar.c test-subset-hdmx.c \
-	test-subset-hmtx.c test-subset-hvar.c test-subset-nameids.c \
-	test-subset-os2.c test-subset-post.c test-subset-repacker.c \
-	test-subset-sbix.c test-subset-vmtx.c test-subset-vvar.c \
-	test-unicode.c test-var-coords.c test-version.c
-DIST_SOURCES = test-aat-layout.c test-baseline.c \
+SOURCES = test-aat-layout.c test-base-minmax.c test-baseline.c \
+	test-be-glyph-advance.c test-be-num-glyphs.c test-blob.c \
+	test-buffer.c test-c.c test-collect-unicodes.c test-common.c \
+	test-coretext.c $(test_cplusplus_SOURCES) test-draw.c \
+	test-extents.c test-font.c test-font-scale.c test-ft.c \
+	test-glyph-names.c test-instance-cff2.c test-map.c \
+	test-multithread.c test-object.c test-ot-alternates.c \
+	test-ot-collect-glyphs.c test-ot-color.c test-ot-extents-cff.c \
+	test-ot-face.c test-ot-glyphname.c test-ot-layout.c \
+	test-ot-ligature-carets.c test-ot-math.c test-ot-meta.c \
+	test-ot-metrics.c test-ot-metrics-tt-var.c test-ot-name.c \
+	test-ot-tag.c test-paint.c test-set.c test-shape.c \
+	test-style.c test-subset.c test-subset-cbdt.c \
+	test-subset-cff1.c test-subset-cff2.c test-subset-cmap.c \
+	test-subset-colr.c test-subset-drop-tables.c \
+	test-subset-glyf.c test-subset-gpos.c test-subset-gvar.c \
+	test-subset-hdmx.c test-subset-hmtx.c test-subset-hvar.c \
+	test-subset-nameids.c test-subset-os2.c test-subset-post.c \
+	test-subset-repacker.c test-subset-sbix.c test-subset-vmtx.c \
+	test-subset-vvar.c test-unicode.c test-var-coords.c \
+	test-version.c
+DIST_SOURCES = test-aat-layout.c test-base-minmax.c test-baseline.c \
 	test-be-glyph-advance.c test-be-num-glyphs.c test-blob.c \
 	test-buffer.c test-c.c test-collect-unicodes.c test-common.c \
 	test-coretext.c $(am__test_cplusplus_SOURCES_DIST) test-draw.c \
@@ -1032,6 +1040,8 @@ STRIP = @STRIP@
 UNISCRIBE_CFLAGS = @UNISCRIBE_CFLAGS@
 UNISCRIBE_LIBS = @UNISCRIBE_LIBS@
 VERSION = @VERSION@
+WASM_CFLAGS = @WASM_CFLAGS@
+WASM_LIBS = @WASM_LIBS@
 _GI_EXP_DATADIR = @_GI_EXP_DATADIR@
 _GI_EXP_LIBDIR = @_GI_EXP_LIBDIR@
 abs_builddir = @abs_builddir@
@@ -1099,9 +1109,9 @@ LINK = $(CXXLINK)
 @HAVE_GLIB_TRUE@AM_CPPFLAGS = -DSRCDIR="\"$(srcdir)\"" -I$(top_srcdir)/src/ -I$(top_builddir)/src/ $(GLIB_CFLAGS)
 @HAVE_GLIB_TRUE@LDADD = $(top_builddir)/src/libharfbuzz.la $(GLIB_LIBS)
 @HAVE_GLIB_TRUE@TEST_PROGS = test-aat-layout test-baseline \
-@HAVE_GLIB_TRUE@	test-be-glyph-advance test-be-num-glyphs \
-@HAVE_GLIB_TRUE@	test-blob test-buffer test-c \
-@HAVE_GLIB_TRUE@	test-collect-unicodes test-cplusplus \
+@HAVE_GLIB_TRUE@	test-base-minmax test-be-glyph-advance \
+@HAVE_GLIB_TRUE@	test-be-num-glyphs test-blob test-buffer \
+@HAVE_GLIB_TRUE@	test-c test-collect-unicodes test-cplusplus \
 @HAVE_GLIB_TRUE@	test-common test-draw test-extents test-font \
 @HAVE_GLIB_TRUE@	test-font-scale test-glyph-names \
 @HAVE_GLIB_TRUE@	test-instance-cff2 test-map test-object \
@@ -1250,6 +1260,10 @@ clean-noinstPROGRAMS:
 test-aat-layout$(EXEEXT): $(test_aat_layout_OBJECTS) $(test_aat_layout_DEPENDENCIES) $(EXTRA_test_aat_layout_DEPENDENCIES) 
 	@rm -f test-aat-layout$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(test_aat_layout_OBJECTS) $(test_aat_layout_LDADD) $(LIBS)
+
+test-base-minmax$(EXEEXT): $(test_base_minmax_OBJECTS) $(test_base_minmax_DEPENDENCIES) $(EXTRA_test_base_minmax_DEPENDENCIES) 
+	@rm -f test-base-minmax$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(test_base_minmax_OBJECTS) $(test_base_minmax_LDADD) $(LIBS)
 
 test-baseline$(EXEEXT): $(test_baseline_OBJECTS) $(test_baseline_DEPENDENCIES) $(EXTRA_test_baseline_DEPENDENCIES) 
 	@rm -f test-baseline$(EXEEXT)
@@ -1502,6 +1516,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-aat-layout.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-base-minmax.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-baseline.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-be-glyph-advance.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-be-num-glyphs.Po@am__quote@ # am--include-marker
@@ -1933,6 +1948,13 @@ test-aat-layout.log: test-aat-layout$(EXEEXT)
 test-baseline.log: test-baseline$(EXEEXT)
 	@p='test-baseline$(EXEEXT)'; \
 	b='test-baseline'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test-base-minmax.log: test-base-minmax$(EXEEXT)
+	@p='test-base-minmax$(EXEEXT)'; \
+	b='test-base-minmax'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
@@ -2454,6 +2476,7 @@ clean-am: clean-checkPROGRAMS clean-generic clean-libtool \
 
 distclean: distclean-am
 		-rm -f ./$(DEPDIR)/test-aat-layout.Po
+	-rm -f ./$(DEPDIR)/test-base-minmax.Po
 	-rm -f ./$(DEPDIR)/test-baseline.Po
 	-rm -f ./$(DEPDIR)/test-be-glyph-advance.Po
 	-rm -f ./$(DEPDIR)/test-be-num-glyphs.Po
@@ -2561,6 +2584,7 @@ installcheck-am:
 
 maintainer-clean: maintainer-clean-am
 		-rm -f ./$(DEPDIR)/test-aat-layout.Po
+	-rm -f ./$(DEPDIR)/test-base-minmax.Po
 	-rm -f ./$(DEPDIR)/test-baseline.Po
 	-rm -f ./$(DEPDIR)/test-be-glyph-advance.Po
 	-rm -f ./$(DEPDIR)/test-be-num-glyphs.Po

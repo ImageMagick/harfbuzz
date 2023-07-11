@@ -34,17 +34,7 @@
 #define HB_COMMON_H
 
 #ifndef HB_EXTERN
-  #if defined(_MSC_VER)
-    #if defined(_LIB)
-      #define HB_EXTERN extern
-    #elif defined(HARFBUZZ_COMPILATION)
-      #define HB_EXTERN extern __declspec(dllexport)
-    #else
-      #define HB_EXTERN __declspec(dllimport)
-    #endif
-  #else
-    #define HB_EXTERN extern
-  #endif
+#define HB_EXTERN extern
 #endif
 
 #ifndef HB_BEGIN_DECLS
@@ -114,6 +104,16 @@ typedef int hb_bool_t;
  *
  **/
 typedef uint32_t hb_codepoint_t;
+
+/**
+ * HB_CODEPOINT_INVALID:
+ *
+ * Unused #hb_codepoint_t value.
+ *
+ * Since: 8.0.0
+ */
+#define HB_CODEPOINT_INVALID ((hb_codepoint_t) -1)
+
 /**
  * hb_position_t:
  * 
