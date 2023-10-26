@@ -199,7 +199,7 @@ am__EXEEXT_2 = test-algs$(EXEEXT) test-array$(EXEEXT) \
 	test-unicode-ranges$(EXEEXT) test-vector$(EXEEXT) \
 	test-repacker$(EXEEXT) test-classdef-graph$(EXEEXT) \
 	test-instancer-solver$(EXEEXT) test-tuple-varstore$(EXEEXT) \
-	$(am__EXEEXT_1)
+	test-item-varstore$(EXEEXT) $(am__EXEEXT_1)
 PROGRAMS = $(bin_PROGRAMS) $(noinst_PROGRAMS)
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -569,6 +569,12 @@ am_test_instancer_solver_OBJECTS =  \
 	test_instancer_solver-hb-static.$(OBJEXT)
 test_instancer_solver_OBJECTS = $(am_test_instancer_solver_OBJECTS)
 test_instancer_solver_DEPENDENCIES = $(am__DEPENDENCIES_13)
+am_test_item_varstore_OBJECTS =  \
+	test_item_varstore-test-item-varstore.$(OBJEXT) \
+	test_item_varstore-hb-subset-instancer-solver.$(OBJEXT) \
+	test_item_varstore-hb-static.$(OBJEXT)
+test_item_varstore_OBJECTS = $(am_test_item_varstore_OBJECTS)
+test_item_varstore_DEPENDENCIES = $(am__DEPENDENCIES_13)
 am_test_iter_OBJECTS = test_iter-test-iter.$(OBJEXT) \
 	test_iter-hb-static.$(OBJEXT)
 test_iter_OBJECTS = $(am_test_iter_OBJECTS)
@@ -756,6 +762,9 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/test_instancer_solver-hb-static.Po \
 	./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po \
 	./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po \
+	./$(DEPDIR)/test_item_varstore-hb-static.Po \
+	./$(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po \
+	./$(DEPDIR)/test_item_varstore-test-item-varstore.Po \
 	./$(DEPDIR)/test_iter-hb-static.Po \
 	./$(DEPDIR)/test_iter-test-iter.Po \
 	./$(DEPDIR)/test_machinery-hb-static.Po \
@@ -834,15 +843,16 @@ SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
 	$(test_gsub_get_alternates_SOURCES) \
 	$(test_gsub_would_substitute_SOURCES) \
-	$(test_instancer_solver_SOURCES) $(test_iter_SOURCES) \
-	$(test_machinery_SOURCES) $(test_map_SOURCES) \
-	$(test_multimap_SOURCES) $(test_number_SOURCES) \
-	$(test_ot_glyphname_SOURCES) $(test_ot_meta_SOURCES) \
-	$(test_ot_name_SOURCES) $(test_ot_tag_SOURCES) \
-	$(test_priority_queue_SOURCES) $(test_repacker_SOURCES) \
-	$(test_serialize_SOURCES) $(test_set_SOURCES) \
-	$(test_tuple_varstore_SOURCES) $(test_unicode_ranges_SOURCES) \
-	$(test_use_table_SOURCES) $(test_vector_SOURCES)
+	$(test_instancer_solver_SOURCES) $(test_item_varstore_SOURCES) \
+	$(test_iter_SOURCES) $(test_machinery_SOURCES) \
+	$(test_map_SOURCES) $(test_multimap_SOURCES) \
+	$(test_number_SOURCES) $(test_ot_glyphname_SOURCES) \
+	$(test_ot_meta_SOURCES) $(test_ot_name_SOURCES) \
+	$(test_ot_tag_SOURCES) $(test_priority_queue_SOURCES) \
+	$(test_repacker_SOURCES) $(test_serialize_SOURCES) \
+	$(test_set_SOURCES) $(test_tuple_varstore_SOURCES) \
+	$(test_unicode_ranges_SOURCES) $(test_use_table_SOURCES) \
+	$(test_vector_SOURCES)
 DIST_SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(am__libharfbuzz_gobject_la_SOURCES_DIST) \
 	$(am__libharfbuzz_icu_la_SOURCES_DIST) \
@@ -854,15 +864,16 @@ DIST_SOURCES = $(libharfbuzz_cairo_la_SOURCES) \
 	$(test_gpos_size_params_SOURCES) \
 	$(test_gsub_get_alternates_SOURCES) \
 	$(test_gsub_would_substitute_SOURCES) \
-	$(test_instancer_solver_SOURCES) $(test_iter_SOURCES) \
-	$(test_machinery_SOURCES) $(test_map_SOURCES) \
-	$(test_multimap_SOURCES) $(test_number_SOURCES) \
-	$(test_ot_glyphname_SOURCES) $(test_ot_meta_SOURCES) \
-	$(test_ot_name_SOURCES) $(test_ot_tag_SOURCES) \
-	$(test_priority_queue_SOURCES) $(test_repacker_SOURCES) \
-	$(test_serialize_SOURCES) $(test_set_SOURCES) \
-	$(test_tuple_varstore_SOURCES) $(test_unicode_ranges_SOURCES) \
-	$(test_use_table_SOURCES) $(test_vector_SOURCES)
+	$(test_instancer_solver_SOURCES) $(test_item_varstore_SOURCES) \
+	$(test_iter_SOURCES) $(test_machinery_SOURCES) \
+	$(test_map_SOURCES) $(test_multimap_SOURCES) \
+	$(test_number_SOURCES) $(test_ot_glyphname_SOURCES) \
+	$(test_ot_meta_SOURCES) $(test_ot_name_SOURCES) \
+	$(test_ot_tag_SOURCES) $(test_priority_queue_SOURCES) \
+	$(test_repacker_SOURCES) $(test_serialize_SOURCES) \
+	$(test_set_SOURCES) $(test_tuple_varstore_SOURCES) \
+	$(test_unicode_ranges_SOURCES) $(test_use_table_SOURCES) \
+	$(test_vector_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -1323,11 +1334,12 @@ DIST_SUBDIRS =
 BUILT_SOURCES = hb-version.h harfbuzz-subset.cc $(am__append_49) \
 	hb-features.h $(RAGEL_GENERATED) harfbuzz.cc
 EXTRA_DIST = harfbuzz.cc harfbuzz-subset.cc meson.build \
-	fix_get_types.py hb-version.h.in hb-features.h.in \
-	harfbuzz.pc.in harfbuzz-config.cmake.in harfbuzz-subset.pc.in \
-	harfbuzz-cairo.pc.in harfbuzz-icu.pc.in harfbuzz-gobject.pc.in \
-	hb-gobject-enums.cc.tmpl hb-gobject-enums.h.tmpl $(NULL) \
-	$(GENERATORS) $(HB_BASE_RAGEL_sources) $(NULL)
+	fix_get_types.py relative_to.py hb-version.h.in \
+	hb-features.h.in harfbuzz.pc.in harfbuzz-config.cmake.in \
+	harfbuzz-subset.pc.in harfbuzz-cairo.pc.in harfbuzz-icu.pc.in \
+	harfbuzz-gobject.pc.in hb-gobject-enums.cc.tmpl \
+	hb-gobject-enums.h.tmpl $(NULL) $(GENERATORS) \
+	$(HB_BASE_RAGEL_sources) $(NULL)
 CLEANFILES = $(pkgconfig_DATA) $(DEF_FILES) $(am__append_53)
 DISTCLEANFILES = $(am__append_50) hb-features.h
 MAINTAINERCLEANFILES = 
@@ -1907,6 +1919,7 @@ COMPILED_TESTS = \
 	test-classdef-graph \
 	test-instancer-solver \
 	test-tuple-varstore \
+	test-item-varstore \
 	$(NULL)
 
 COMPILED_TESTS_CPPFLAGS = $(HBCFLAGS) -DMAIN -UNDEBUG
@@ -1965,6 +1978,9 @@ test_instancer_solver_LDADD = $(COMPILED_TESTS_LDADD)
 test_tuple_varstore_SOURCES = test-tuple-varstore.cc hb-subset-instancer-solver.cc hb-static.cc
 test_tuple_varstore_CPPFLAGS = $(COMPILED_TESTS_CPPFLAGS)
 test_tuple_varstore_LDADD = $(COMPILED_TESTS_LDADD)
+test_item_varstore_SOURCES = test-item-varstore.cc hb-subset-instancer-solver.cc hb-static.cc
+test_item_varstore_CPPFLAGS = $(COMPILED_TESTS_CPPFLAGS)
+test_item_varstore_LDADD = $(COMPILED_TESTS_LDADD)
 dist_check_SCRIPTS = check-c-linkage-decls.py check-externs.py \
 	check-header-guards.py check-includes.py check-static-inits.py \
 	check-symbols.py $(NULL) $(am__append_52)
@@ -2235,6 +2251,10 @@ test-instancer-solver$(EXEEXT): $(test_instancer_solver_OBJECTS) $(test_instance
 	@rm -f test-instancer-solver$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_instancer_solver_OBJECTS) $(test_instancer_solver_LDADD) $(LIBS)
 
+test-item-varstore$(EXEEXT): $(test_item_varstore_OBJECTS) $(test_item_varstore_DEPENDENCIES) $(EXTRA_test_item_varstore_DEPENDENCIES) 
+	@rm -f test-item-varstore$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_item_varstore_OBJECTS) $(test_item_varstore_LDADD) $(LIBS)
+
 test-iter$(EXEEXT): $(test_iter_OBJECTS) $(test_iter_DEPENDENCIES) $(EXTRA_test_iter_DEPENDENCIES) 
 	@rm -f test-iter$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(test_iter_OBJECTS) $(test_iter_LDADD) $(LIBS)
@@ -2408,6 +2428,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_item_varstore-hb-static.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_item_varstore-test-item-varstore.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-hb-static.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_iter-test-iter.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_machinery-hb-static.Po@am__quote@ # am--include-marker
@@ -3277,6 +3300,48 @@ test_instancer_solver-hb-static.obj: hb-static.cc
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_instancer_solver-hb-static.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_instancer_solver_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_instancer_solver-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
+
+test_item_varstore-test-item-varstore.o: test-item-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-test-item-varstore.o -MD -MP -MF $(DEPDIR)/test_item_varstore-test-item-varstore.Tpo -c -o test_item_varstore-test-item-varstore.o `test -f 'test-item-varstore.cc' || echo '$(srcdir)/'`test-item-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-test-item-varstore.Tpo $(DEPDIR)/test_item_varstore-test-item-varstore.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-item-varstore.cc' object='test_item_varstore-test-item-varstore.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-test-item-varstore.o `test -f 'test-item-varstore.cc' || echo '$(srcdir)/'`test-item-varstore.cc
+
+test_item_varstore-test-item-varstore.obj: test-item-varstore.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-test-item-varstore.obj -MD -MP -MF $(DEPDIR)/test_item_varstore-test-item-varstore.Tpo -c -o test_item_varstore-test-item-varstore.obj `if test -f 'test-item-varstore.cc'; then $(CYGPATH_W) 'test-item-varstore.cc'; else $(CYGPATH_W) '$(srcdir)/test-item-varstore.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-test-item-varstore.Tpo $(DEPDIR)/test_item_varstore-test-item-varstore.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='test-item-varstore.cc' object='test_item_varstore-test-item-varstore.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-test-item-varstore.obj `if test -f 'test-item-varstore.cc'; then $(CYGPATH_W) 'test-item-varstore.cc'; else $(CYGPATH_W) '$(srcdir)/test-item-varstore.cc'; fi`
+
+test_item_varstore-hb-subset-instancer-solver.o: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-hb-subset-instancer-solver.o -MD -MP -MF $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Tpo -c -o test_item_varstore-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_item_varstore-hb-subset-instancer-solver.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-hb-subset-instancer-solver.o `test -f 'hb-subset-instancer-solver.cc' || echo '$(srcdir)/'`hb-subset-instancer-solver.cc
+
+test_item_varstore-hb-subset-instancer-solver.obj: hb-subset-instancer-solver.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-hb-subset-instancer-solver.obj -MD -MP -MF $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Tpo -c -o test_item_varstore-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Tpo $(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-subset-instancer-solver.cc' object='test_item_varstore-hb-subset-instancer-solver.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-hb-subset-instancer-solver.obj `if test -f 'hb-subset-instancer-solver.cc'; then $(CYGPATH_W) 'hb-subset-instancer-solver.cc'; else $(CYGPATH_W) '$(srcdir)/hb-subset-instancer-solver.cc'; fi`
+
+test_item_varstore-hb-static.o: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-hb-static.o -MD -MP -MF $(DEPDIR)/test_item_varstore-hb-static.Tpo -c -o test_item_varstore-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-hb-static.Tpo $(DEPDIR)/test_item_varstore-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_item_varstore-hb-static.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-hb-static.o `test -f 'hb-static.cc' || echo '$(srcdir)/'`hb-static.cc
+
+test_item_varstore-hb-static.obj: hb-static.cc
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_item_varstore-hb-static.obj -MD -MP -MF $(DEPDIR)/test_item_varstore-hb-static.Tpo -c -o test_item_varstore-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/test_item_varstore-hb-static.Tpo $(DEPDIR)/test_item_varstore-hb-static.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hb-static.cc' object='test_item_varstore-hb-static.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_item_varstore_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o test_item_varstore-hb-static.obj `if test -f 'hb-static.cc'; then $(CYGPATH_W) 'hb-static.cc'; else $(CYGPATH_W) '$(srcdir)/hb-static.cc'; fi`
 
 test_iter-test-iter.o: test-iter.cc
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_iter_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT test_iter-test-iter.o -MD -MP -MF $(DEPDIR)/test_iter-test-iter.Tpo -c -o test_iter-test-iter.o `test -f 'test-iter.cc' || echo '$(srcdir)/'`test-iter.cc
@@ -4196,6 +4261,13 @@ test-tuple-varstore.log: test-tuple-varstore$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
+test-item-varstore.log: test-item-varstore$(EXEEXT)
+	@p='test-item-varstore$(EXEEXT)'; \
+	b='test-item-varstore'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
 check-c-linkage-decls.py.log: check-c-linkage-decls.py
 	@p='check-c-linkage-decls.py'; \
 	b='check-c-linkage-decls.py'; \
@@ -4476,6 +4548,9 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
 	-rm -f ./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-test-item-varstore.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
 	-rm -f ./$(DEPDIR)/test_machinery-hb-static.Po
@@ -4652,6 +4727,9 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_instancer_solver-hb-subset-instancer-solver.Po
 	-rm -f ./$(DEPDIR)/test_instancer_solver-test-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-hb-static.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-hb-subset-instancer-solver.Po
+	-rm -f ./$(DEPDIR)/test_item_varstore-test-item-varstore.Po
 	-rm -f ./$(DEPDIR)/test_iter-hb-static.Po
 	-rm -f ./$(DEPDIR)/test_iter-test-iter.Po
 	-rm -f ./$(DEPDIR)/test_machinery-hb-static.Po

@@ -113,8 +113,9 @@ TESTS = tests/32bit_var_store.tests tests/basics.tests \
 	tests/layout.unsorted_featurelist.tests \
 	tests/layout.drop_feature.tests tests/no_layout_closure.tests \
 	tests/sbix.tests tests/variable.tests tests/glyph_names.tests \
-	tests/math.tests tests/math_coverage_offset.tests \
-	tests/post.tests tests/full_instance.tests \
+	tests/glyph_map.tests tests/math.tests \
+	tests/math_coverage_offset.tests tests/post.tests \
+	tests/full_instance.tests \
 	tests/instance_feature_variations.tests \
 	tests/instantiate_glyf.tests tests/instantiate_cff2.tests \
 	tests/pin_all_at_default.tests \
@@ -641,11 +642,11 @@ EXTRA_DIST = $(TESTS) $(DISABLED_TESTS) expected/32bit_var_store \
 	expected/colr_glyphs expected/colrv1 \
 	expected/colrv1_copy_varstore expected/colr_with_components \
 	expected/cbdt expected/variable expected/glyph_names \
-	expected/math expected/math_coverage_offset expected/post \
-	expected/full_instance expected/instance_feature_variations \
-	expected/instantiate_glyf expected/instantiate_cff2 \
-	expected/pin_all_at_default expected/instance_no_double_free \
-	expected/mvar_full_instance \
+	expected/glyph_map expected/math expected/math_coverage_offset \
+	expected/post expected/full_instance \
+	expected/instance_feature_variations expected/instantiate_glyf \
+	expected/instantiate_cff2 expected/pin_all_at_default \
+	expected/instance_no_double_free expected/mvar_full_instance \
 	expected/instance_comp_glyph_empty_child \
 	expected/post_apply_mvar_delta expected/apply_cvar_delta \
 	expected/collect_name_ids expected/instantiate_colrv1 \
