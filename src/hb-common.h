@@ -34,17 +34,7 @@
 #define HB_COMMON_H
 
 #ifndef HB_EXTERN
-  #if defined(_MSC_VER)
-    #if defined(_LIB)
-      #define HB_EXTERN extern
-    #elif defined(HARFBUZZ_COMPILATION)
-      #define HB_EXTERN extern __declspec(dllexport)
-    #else
-      #define HB_EXTERN __declspec(dllimport)
-    #endif
-  #else
-    #define HB_EXTERN extern
-  #endif
+#define HB_EXTERN extern
 #endif
 
 #ifndef HB_BEGIN_DECLS
@@ -59,8 +49,8 @@
 
 #if defined (_AIX)
 #  include <sys/inttypes.h>
-#elif defined (_MSC_VER) && _MSC_VER < 1800
-/* VS 2013 (_MSC_VER 1800) has inttypes.h */
+#elif defined (_MSC_VER) && _MSC_VER < 1600
+/* VS 2010 (_MSC_VER 1600) has stdint.h   */
 typedef __int8 int8_t;
 typedef unsigned __int8 uint8_t;
 typedef __int16 int16_t;
@@ -69,6 +59,9 @@ typedef __int32 int32_t;
 typedef unsigned __int32 uint32_t;
 typedef __int64 int64_t;
 typedef unsigned __int64 uint64_t;
+#elif defined (_MSC_VER) && _MSC_VER < 1800
+/* VS 2013 (_MSC_VER 1800) has inttypes.h */
+#  include <stdint.h>
 #else
 #  include <inttypes.h>
 #endif
