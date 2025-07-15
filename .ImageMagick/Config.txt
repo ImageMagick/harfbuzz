@@ -1,4 +1,4 @@
-[DLL]
+[DYNAMIC_LIBRARY]
 
 [LICENSE]
 COPYING
@@ -8,27 +8,29 @@ HAVE_GLIB
 HAVE_FREETYPE
 HARFBUZZ_COMPILATION
 
-[DIRECTORIES]
-src
-
-[INCLUDES]
-freetype->include
-glib->.
-glib->glib
+[INCLUDE_ARTIFACTS]
+src -> .
 
 [EXCLUDES]
-dump-indic-data.cc
-dump-khmer-data.cc
-dump-myanmar-data.cc
-dump-use-data.cc
-failing-alloc.c
-harfbuzz.cc
-harfbuzz-subset.cc
-hb-subset*
-main.cc
-test.cc
-test-*
+perf\
+src\graph\
+src\ms-use\
+src\OT\
+src\rust\
+src\wasm\
+src\failing-alloc.c
+src\harfbuzz.cc
+src\harfbuzz-subset.cc
+src\hb-subset.cc
+src\hb-subset-
+src\main.cc
+src\main.cc
+src\test.cc
+src\test-
+subprojects\
+test\
+util\
 
-[DEPENDENCIES]
+[REFERENCES]
 freetype
 glib
