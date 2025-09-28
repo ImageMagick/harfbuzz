@@ -1,5 +1,23 @@
 [DYNAMIC_LIBRARY]
 
+[VERSION]
+11.5.0
+
+[RELEASE_DATE]
+2025-09-22
+
+[PRODUCT_NAME]
+harfbuzz
+
+[COMPANY_NAME]
+Google, Inc.
+
+[URL]
+https://github.com/harfbuzz/harfbuzz
+
+[COPYRIGHT]
+Copyright © 2010 Google, Inc.
+
 [LICENSE_FILE]
 COPYING
 
