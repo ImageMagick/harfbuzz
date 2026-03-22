@@ -206,7 +206,10 @@ HB_HAS_GLIB
 HB_HAS_GOBJECT
 HB_HAS_GRAPHITE
 HB_HAS_ICU
+HB_HAS_RASTER
+HB_HAS_SUBSET
 HB_HAS_UNISCRIBE
+HB_HAS_VECTOR
 HB_HAS_WASM
 </SECTION>
 
@@ -783,6 +786,8 @@ hb_ot_metrics_tag_t
 
 <SECTION>
 <FILE>hb-ot-shape</FILE>
+HB_OT_SHAPE_BUFFER_FORMAT_SERIAL
+hb_ot_shape_get_buffer_format_serial
 hb_ot_shape_glyphs_closure
 </SECTION>
 
@@ -1009,6 +1014,8 @@ hb_raster_image_clear
 hb_raster_image_get_buffer
 hb_raster_image_get_extents
 hb_raster_image_get_format
+hb_raster_image_deserialize_from_png_or_fail
+hb_raster_image_serialize_to_png_or_fail
 hb_raster_draw_t
 hb_raster_draw_create_or_fail
 hb_raster_draw_reference
