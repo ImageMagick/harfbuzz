@@ -43,6 +43,9 @@ src\wasm\
 src\failing-alloc.c
 src\harfbuzz.cc
 src\harfbuzz-subset.cc
+src\harfbuzz-world.cc
+src\hb-gpu.cc
+src\hb-gpu-
 src\hb-subset.cc
 src\hb-subset-
 src\main.cc
