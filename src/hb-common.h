@@ -34,17 +34,7 @@
 #define HB_COMMON_H
 
 #ifndef HB_EXTERN
-  #if defined(_MSC_VER)
-    #if defined(_LIB)
-      #define HB_EXTERN extern
-    #elif defined(HARFBUZZ_COMPILATION)
-      #define HB_EXTERN extern __declspec(dllexport)
-    #else
-      #define HB_EXTERN __declspec(dllimport)
-    #endif
-  #else
-    #define HB_EXTERN extern
-  #endif
+#define HB_EXTERN extern
 #endif
 
 #ifndef HB_BEGIN_DECLS
@@ -103,6 +93,25 @@ HB_BEGIN_DECLS
  *
  **/
 typedef int hb_bool_t;
+
+/**
+ * HB_BUDGET_DEFAULT:
+ *
+ * Use the implementation's finite default work budget.
+ *
+ * Since: 14.5.0
+ **/
+#define HB_BUDGET_DEFAULT ((int64_t) (-0x7FFFFFFFFFFFFFFF - 1))
+
+/**
+ * HB_BUDGET_UNLIMITED:
+ *
+ * Use an effectively unlimited work budget. Structural safety limits remain
+ * active.
+ *
+ * Since: 14.5.0
+ **/
+#define HB_BUDGET_UNLIMITED ((int64_t) 0x7FFFFFFFFFFFFFFF)
 
 /**
  * hb_codepoint_t:
