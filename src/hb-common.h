@@ -34,7 +34,17 @@
 #define HB_COMMON_H
 
 #ifndef HB_EXTERN
-#define HB_EXTERN extern
+  #if defined(_MSC_VER)
+    #if defined(_LIB)
+      #define HB_EXTERN extern
+    #elif defined(HARFBUZZ_COMPILATION)
+      #define HB_EXTERN extern __declspec(dllexport)
+    #else
+      #define HB_EXTERN __declspec(dllimport)
+    #endif
+  #else
+    #define HB_EXTERN extern
+  #endif
 #endif
 
 #ifndef HB_BEGIN_DECLS
