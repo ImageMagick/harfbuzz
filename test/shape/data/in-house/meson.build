@@ -1,4 +1,5 @@
 in_house_tests = [
+  'aat-kerx.tests',
   'aat-morx.tests',
   'aat-trak.tests',
   'anchor-variations.tests',
@@ -42,9 +43,11 @@ in_house_tests = [
   'indic-script-extensions.tests',
   'indic-special-cases.tests',
   'indic-syllable.tests',
+  'indic-unicode18.tests',
   'indic-vowel-letter-spoofing.tests',
   'item-context.tests',
   'kbts.tests',
+  'kern-format1.tests',
   'kern-format2.tests',
   'khmer-mark-order.tests',
   'khmer-misc.tests',
